@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.farmershop.ui.auth.AuthViewModel" />
+    </data>
+
+    <ScrollView
+        style="@style/scroll_view">
+
+        <LinearLayout style="@style/screen_bg">
+
+
+
+            <ImageView
+                style="@style/img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout style="@style/linear_layout_vertical">
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    style="@style/tab_view"
+                    app:tabMode="fixed"
+                    app:tabGravity="fill"/>
+                <com.farmershop.appSDK.CustomViewPager
+                    android:id="@+id/viewpager"
+                    style="@style/view_pager"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"  />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/linear_layout_horizontal"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <TextView
+                    style="@style/text_view"
+                    android:layout_width="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/app_version" />
+
+                <TextView
+                    android:id="@+id/app_version"
+                    style="@style/text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="1.0.1"
+                    android:textColor="@color/orange" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

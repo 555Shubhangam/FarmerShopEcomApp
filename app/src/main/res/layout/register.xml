@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/relative_layout">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        style="@style/linear_layout_vertical">
+        <LinearLayout
+            style="@style/linear_layout_vertical">
+            <TextView
+                style="@style/edit_text_label"
+                android:text="@string/name"/>
+            <EditText
+                android:id="@+id/name"
+                style="@style/edit_text_default"
+                android:inputType="textCapWords"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/linear_layout_vertical">
+            <TextView
+                style="@style/edit_text_label"
+                android:text="@string/mobile_number"/>
+            <EditText
+                android:id="@+id/mobile"
+                style="@style/edit_text_default"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/linear_layout_vertical">
+            <TextView
+                style="@style/edit_text_label"
+                android:text="@string/email"/>
+            <EditText
+                android:id="@+id/email"
+                style="@style/edit_text_default"
+                android:inputType="textEmailAddress"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/linear_layout_vertical">
+            <TextView
+                style="@style/edit_text_label"
+                android:text="@string/password"/>
+            <EditText
+                android:id="@+id/password"
+                style="@style/edit_text_default"
+                android:inputType="textPassword"/>
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/btnSubmit"
+            style="@style/button_orange"
+            android:text="@string/register" />
+    </LinearLayout>
+    <include layout="@layout/include_progress_bar"/>
+</RelativeLayout>

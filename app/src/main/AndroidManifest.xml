@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.farmershop">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".ui.product.ProductDetails" />
+        <activity
+            android:name=".ui.product.CategoryItems"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".ui.profile.Location" />
+        <activity android:name=".ui.auth.Register" />
+        <activity android:name=".ui.product.Cart" />
+        <activity android:name=".ui.search.Search" />
+        <activity android:name=".ui.store.Store" />
+        <activity android:name=".ui.profile.Profile" />
+        <activity android:name=".ui.auth.OTP" />
+
+        <activity android:name=".ui.auth.Login" />
+        <activity
+            android:name=".ExitActivity"
+            android:screenOrientation="nosensor" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.home.Home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

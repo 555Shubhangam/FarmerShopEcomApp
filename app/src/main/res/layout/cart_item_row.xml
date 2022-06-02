@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/card_layout"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        style="@style/linear_layout_horizontal"
+        android:padding="2dp">
+        <ImageView
+            android:id="@+id/image"
+            style="@style/image_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher" />
+        <LinearLayout
+            style="@style/linear_layout_vertical"
+            android:padding="2dp">
+            <TextView
+                android:id="@+id/product_name"
+                style="@style/text_view"
+                android:padding="2dp"
+                android:text="Product Name"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                style="@style/linear_layout_horizontal">
+                <TextView
+                    android:id="@+id/price"
+                    style="@style/text_view"
+                    android:layout_width="wrap_content"
+                    android:padding="2dp"
+                    android:text="Price"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+                <TextView
+
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/old_price"
+                    style="@style/text_view"
+                    android:layout_width="wrap_content"
+                    android:padding="2dp"
+                    android:text="Old Price"
+                    android:textSize="13sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_gravity="right"
+                android:layout_width="wrap_content"
+                android:gravity="right"
+                style="@style/linear_layout_horizontal">
+                <TextView
+                    android:id="@+id/btnAdd"
+                    style="@style/btn_add"
+                    android:text="Add"
+                    />
+                <LinearLayout
+                    android:id="@+id/qty_layout"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:gravity="right"
+                    style="@style/linear_layout_horizontal">
+                    <TextView
+                        android:id="@+id/btnMinus"
+                        style="@style/btn_plus_minus"
+                        android:text=" - "
+                        />
+                    <TextView
+                        android:id="@+id/qty"
+                        style="@style/btn_plus_minus"
+                        android:text="1"
+                        android:background="@color/white"
+                        android:textColor="@color/black"
+                        />
+                    <TextView
+                        android:id="@+id/btnPlus"
+                        style="@style/btn_plus_minus"
+                        android:text=" + "
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

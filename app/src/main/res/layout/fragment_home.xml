@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/scroll_view">
+
+    <RelativeLayout
+        style="@style/screen_bg"
+        tools:context=".ui.home.FrgHome">
+
+        <LinearLayout
+            style="@style/linear_layout_vertical"
+            android:layout_height="match_parent">
+
+
+
+            <LinearLayout
+                style="@style/linear_layout_horizontal"
+                android:layout_marginBottom="5dp"
+                android:background="@color/red">
+                <TextView
+                    style="@style/heading"
+                    android:text="Shop by Category"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_category"
+                style="@style/recycler_view"
+                android:nestedScrollingEnabled="false"/>
+
+            <LinearLayout
+                style="@style/linear_layout_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/heading"
+                    android:text="Most Popular Products"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_popular"
+                style="@style/recycler_view"
+                android:nestedScrollingEnabled="false"/>
+
+        </LinearLayout>
+        <include layout="@layout/include_progress_bar" />
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
