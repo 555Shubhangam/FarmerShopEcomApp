@@ -2,4 +2,11 @@
 <resources>
     <dimen name="screen_padding">8dp</dimen>
     <dimen name="control_margin">10dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="side_margin">@dimen/_15sdp</dimen>
+    <dimen name="edit_ht">@dimen/_35sdp</dimen>
+
+    <dimen name="sephiroth_range_progress_bar_height_material">2dp</dimen>
+    <dimen name="sephiroth_range_progress_bar_tick_mark_height_material">3.5dp</dimen>
+    <dimen name="sephiroth_range_progress_bar_tick_mark_width_material">3.5dp</dimen>
 </resources>

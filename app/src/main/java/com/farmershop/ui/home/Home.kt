@@ -23,6 +23,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.farmershop.appSDK.*
 import com.farmershop.data.network.ApiPojo
+import com.farmershop.ui.location.SearchLocationActivity
 import com.farmershop.ui.product.ProductViewModel
 import com.farmershop.ui.profile.Location
 import com.farmershop.ui.profile.Profile
@@ -111,10 +112,10 @@ class Home : BaseActivityUser(), NavigationView.OnNavigationItemSelectedListener
             startActivity(Intent(applicationContext,Profile::class.java))
         }
         header_location.setOnClickListener {
-            startActivity(Intent(applicationContext,Location::class.java))
+            startActivity(Intent(applicationContext,SearchLocationActivity::class.java))
         }
         header_location_icon.setOnClickListener {
-            startActivity(Intent(applicationContext,Location::class.java))
+            startActivity(Intent(applicationContext,SearchLocationActivity::class.java))
         }
 
     }

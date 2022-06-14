@@ -22,4 +22,10 @@
     <string name="mobile_number">Mobile Number</string>
     <string name="otp_sent_to_your_mobile_number">OTP sent to your mobile number</string>
     <string name="userid">UserId</string>
+    <string name="GOOGLE_MAP_KEY_NEW">AIzaSyCPoTpFZCEOEW9y0HHmY4rmoY6kXzR4DjU</string>
+    <string name="shared_pref">SHARED_PREF</string>
+    <string name="search_location">Search for area, landmark or apartment</string>
+    <string name="current_location">Choose Current Location</string>
+    <string name="error">Google Api key is missing.</string>
+
 </resources>
