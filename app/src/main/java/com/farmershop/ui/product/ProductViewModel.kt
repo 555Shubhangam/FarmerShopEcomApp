@@ -1,14 +1,9 @@
 package com.farmershop.ui.product
 
-import com.farmershop.appSDK.Validation
 import com.farmershop.data.`interface`.BaseInterface
-import com.farmershop.data.network.ApiPojo
-import com.farmershop.data.repository.AuthRepository
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import com.exfactor.appsdk.AppSession
+import com.farmershop.appSDK.AppSession
 import com.farmershop.data.repository.ProductRepository
 
 class ProductViewModel (application: Application) : AndroidViewModel(application) {
@@ -35,13 +30,15 @@ class ProductViewModel (application: Application) : AndroidViewModel(application
 
     fun categoryItemList(category_id:String){
         baseInterface.onApiStart()
-        val response= ProductRepository().categoryItemList(category_id,AppSession.getInstance(mContext).getUserId().toString())
+        val response= ProductRepository().categoryItemList(category_id,
+            AppSession.getInstance(mContext).getUserId().toString())
         baseInterface.onApiSuccess1(response,"categoryItemList")
     }
 
     fun updateCart(product_id:String,qty:String){
         baseInterface.onApiStart()
-        val response= ProductRepository().updateCart(product_id,qty,AppSession.getInstance(mContext).getUserId().toString())
+        val response= ProductRepository().updateCart(product_id,qty,
+            AppSession.getInstance(mContext).getUserId().toString())
         baseInterface.onApiSuccess(response,"updateCart")
     }
 

@@ -18,9 +18,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.exfactor.appsdk.AppSession
 import com.farmershop.data.network.DataBin
-import com.google.android.material.snackbar.Snackbar
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
 import org.json.JSONArray

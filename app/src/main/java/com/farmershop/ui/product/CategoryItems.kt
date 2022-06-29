@@ -1,6 +1,5 @@
 package com.farmershop.ui.product
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,15 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.exfactor.appsdk.AppSession
 import com.farmershop.R
 import com.farmershop.appSDK.*
 import com.farmershop.data.network.ApiPojo
 import com.farmershop.data.network.ApiPojoArray
 import com.farmershop.ui.product.adapter.CategoryItemAdapter
-import com.farmershop.ui.product.adapter.HomeCategoryAdapter
 import kotlinx.android.synthetic.main.category_items.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.include_progress_bar.*
 import kotlinx.android.synthetic.main.include_toolbar_product.*
 

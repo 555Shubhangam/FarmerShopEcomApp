@@ -3,17 +3,13 @@ package com.farmershop.ui.product.adapter
 import AppConfig
 import android.content.Context
 import android.content.Intent
-import android.graphics.Paint
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.exfactor.appsdk.AppSession
 import com.farmershop.R
 import com.farmershop.appSDK.StaticMethods
-import com.farmershop.data.`interface`.BaseInterface
 import com.farmershop.data.network.DataBin
 import com.farmershop.ui.product.CategoryItems
 import com.farmershop.ui.product.ProductDetails

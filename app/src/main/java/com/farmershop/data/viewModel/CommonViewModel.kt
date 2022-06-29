@@ -1,6 +1,6 @@
 package com.farmershop.data.viewModel
 
-import com.exfactor.appsdk.AppSession
+import com.farmershop.appSDK.AppSession
 import com.farmershop.data.`interface`.BaseInterface
 import android.app.Application
 import android.content.Context

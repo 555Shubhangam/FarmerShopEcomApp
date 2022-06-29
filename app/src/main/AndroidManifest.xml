@@ -41,6 +41,24 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".mvvm_data.ui.Activity.MyAddressActivity"
+            android:exported="true" />
+        <activity
+            android:name=".mvvm_data.ui.Activity.ProductDescriptionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".mvvm_data.ui.Activity.EditAddressActivity"
+            android:exported="true" />
+        <activity
+            android:name=".mvvm_data.ui.Activity.AddToCartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".mvvm_data.ui.Activity.SearchActivity"
+            android:exported="true" />
+        <activity
+            android:name=".mvvm_data.ui.Activity.MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.location.MapActivity"
             android:exported="true" />
         <activity

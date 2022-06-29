@@ -4,16 +4,23 @@
     android:id="@+id/toolbar"
     style="@style/toolbar"
     app:contentInsetStart="0dp">
-    <LinearLayout style="@style/linear_layout_horizontal">
+    <LinearLayout
+        style="@style/linear_layout_horizontal">
 
     <ImageView
+        android:layout_marginLeft="@dimen/_10sdp"
         android:id="@+id/toolbar_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/ic_arrow_back" />
     <TextView
-        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:text="Toolbar"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
         android:id="@+id/toolbar_title"
-        style="@style/toolbar_title" />
+        style="@style/txtMonBold" />
     </LinearLayout>
 </androidx.appcompat.widget.Toolbar>

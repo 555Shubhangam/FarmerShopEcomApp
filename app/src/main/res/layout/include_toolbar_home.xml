@@ -19,7 +19,7 @@
                 android:src="@drawable/ic_hambarger" />
 
             <TextView
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:id="@+id/toolbar_title"
                 style="@style/toolbar_title"
                 android:layout_weight="1"
@@ -33,10 +33,10 @@
                 android:layout_width="wrap_content">
 
                 <ImageView
-                    android:duplicateParentState="true"
                     android:id="@+id/image"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:duplicateParentState="true"
                     android:src="@drawable/ic_cart" />
 
                 <TextView
@@ -54,8 +54,38 @@
                     android:textStyle="bold" />
             </RelativeLayout>
         </LinearLayout>
+        <TextView
+            android:id="@+id/tvLocation"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawablePadding="@dimen/_5sdp"
+            style="@style/txtMonReg"
+            android:maxLines="2"
+            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:text="@string/search_all_farmer_products"
+            android:drawableStart="@drawable/ic_location" />
+        <LinearLayout
 
-        <EditText
+            android:paddingBottom="@dimen/_5sdp"
+            android:id="@+id/lin_searchProduct_mainAct"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginTop="@dimen/_7sdp"
+                android:id="@+id/txt_searchProduct"
+                android:gravity="center_vertical"
+                android:drawablePadding="@dimen/_5sdp"
+                android:backgroundTint="@color/white"
+                style="@style/editMonsRegWhiteBackgrounf"
+                android:textColor="@color/colorGray"
+                android:text="@string/search_all_farmer_products"
+                app:drawableLeftCompat="@drawable/ic_search" />
+        </LinearLayout>
+
+        <!--<EditText
             android:id="@+id/editSearch"
             android:paddingLeft="10dp"
             android:layout_marginTop="15dp"
@@ -64,7 +94,7 @@
             android:hint="Search All Farmer Products"
             android:textColor="@color/gray"
             android:textColorHint="@color/gray"
-            android:drawableLeft="@drawable/ic_search"/>
+            android:drawableLeft="@drawable/ic_search"/>-->
     </LinearLayout>
 
 </androidx.appcompat.widget.Toolbar>

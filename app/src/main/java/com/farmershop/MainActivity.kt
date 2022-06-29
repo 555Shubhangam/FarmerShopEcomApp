@@ -1,6 +1,6 @@
 package com.farmershop
 
-import com.exfactor.appsdk.AppSession
+import com.farmershop.appSDK.AppSession
 import com.farmershop.ui.auth.Login
 import com.farmershop.ui.home.Home
 import android.content.Intent

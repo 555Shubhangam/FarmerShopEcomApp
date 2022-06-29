@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.farmershop.BuildConfig
+
 import com.farmershop.appSDK.*
 import com.farmershop.data.network.ApiPojo
 import com.farmershop.data.network.ApiPojoArray
@@ -29,7 +29,6 @@ import kotlinx.android.synthetic.main.include_progress_bar.*
 import kotlinx.android.synthetic.main.tab_login.*
 
 class FrgHome : BaseFragment() {
-
     lateinit var mContext: Context
     lateinit var viewModel:ProductViewModel
     companion object {

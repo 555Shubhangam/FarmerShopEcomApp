@@ -14,6 +14,15 @@
             android:icon="@drawable/ic_category_black"
             android:title="Shop By Category" />
         <item
+            android:id="@+id/nav_myorders"
+            android:icon="@drawable/ic_category_black"
+            android:title="My Orders" />
+
+        <item
+            android:id="@+id/nav_mywallet"
+            android:icon="@drawable/ic_category_black"
+            android:title="My Wallet" />
+        <item
             android:id="@+id/nav_faq"
             android:icon="@drawable/ic_faq_black"
             android:title="FAQ" />

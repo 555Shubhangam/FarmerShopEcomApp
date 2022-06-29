@@ -1,10 +1,14 @@
 package com.farmershop.appSDK
 
+import android.content.Context
 import com.farmershop.data.`interface`.BaseInterface
 import com.farmershop.data.network.ApiPojo
 import com.farmershop.data.network.ApiPojoArray
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.LiveData
+import com.farmershop.R
 import com.farmershop.data.network.PostPojo
 
 open class BaseFragment: Fragment(),BaseInterface {
@@ -36,5 +40,14 @@ open class BaseFragment: Fragment(),BaseInterface {
 
     override fun onAdapterItemClick(args: Array<String>) {
         TODO("Not yet implemented")
+    }
+
+    fun addFragment(fragment: Fragment) {
+
+        val fragmentManager: FragmentManager = activity!!.supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 }

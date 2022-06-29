@@ -1,7 +1,6 @@
 package com.farmershop.ui.auth
 
 
-import com.exfactor.appsdk.AppSession
 import com.farmershop.BuildConfig
 import com.farmershop.R
 import com.farmershop.appSDK.*

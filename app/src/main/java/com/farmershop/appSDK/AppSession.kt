@@ -1,4 +1,4 @@
-package com.exfactor.appsdk
+package com.farmershop.appSDK
 
 
 
@@ -9,10 +9,10 @@ import android.content.SharedPreferences
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class AppSession private constructor(context: Context) {
+open class AppSession private constructor(context: Context) {
     init {
         ctx = context
-        sharedPreferences=ctx?.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        sharedPreferences = ctx?.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
     }
     companion object {
         private val SHARED_PREF_NAME = "linkcxoSharedPreferences"
@@ -21,6 +21,9 @@ class AppSession private constructor(context: Context) {
         private val SIGNUP_COMPLETED="SIGNUP_COMPLETED"
         private val UPLOAD_PATH="UPLOAD_PATH"
         private val LOCATION="LOCATION"
+        private val CURRENT_LAT="CURRENT_LAT"
+        private val CURRENT_LONGI="CURRENT_LONGI"
+        private val CURRENT_ADDRESS="CURRENT_ADDRESS"
         private val NAME="NAME"
         private val NICK_NAME="NICK_NAME"
         private val FRAGMENT_NAME="FRAGMENT_NAME"
@@ -117,7 +120,7 @@ class AppSession private constructor(context: Context) {
         editor?.commit()
     }
     open fun isSignUpCompleted():Boolean{
-        val is_signup_complated=sharedPreferences?.getString(SIGNUP_COMPLETED, null)
+        val is_signup_complated= sharedPreferences?.getString(SIGNUP_COMPLETED, null)
         return is_signup_complated!=null && is_signup_complated=="1"
     }
 
@@ -168,6 +171,35 @@ class AppSession private constructor(context: Context) {
         return sharedPreferences?.getString(NAME, null)
     }
 
+    open fun setCurrLat(data:String){
+        val editor=  sharedPreferences?.edit()
+        editor?.putString(CURRENT_LAT,data)
+        editor?.apply()
+        editor?.commit()
+    }
+    open fun getCurrLat():String?{
+        return sharedPreferences?.getString(CURRENT_LAT, null)
+    }
+
+    open fun setCurrLong(data:String){
+        val editor=  sharedPreferences?.edit()
+        editor?.putString(CURRENT_LONGI,data)
+        editor?.apply()
+        editor?.commit()
+    }
+    open fun getCurrLong():String?{
+        return sharedPreferences?.getString(CURRENT_LONGI, null)
+    }
+
+    open fun setCurrAddress(data:String){
+        val editor=  sharedPreferences?.edit()
+        editor?.putString(CURRENT_ADDRESS,data)
+        editor?.apply()
+        editor?.commit()
+    }
+    open fun getCurrAddress():String?{
+        return sharedPreferences?.getString(CURRENT_ADDRESS, null)
+    }
 
     open fun setInterestId(data:String){
         val editor=  sharedPreferences?.edit()

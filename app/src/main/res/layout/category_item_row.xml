@@ -38,7 +38,7 @@
                     android:textSize="15sp" />
                 <TextView
 
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/old_price"
                     style="@style/text_view"
                     android:layout_width="wrap_content"
