@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        layout="@layout/include_toolbar"></include>
+    <TextView
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:padding="2dp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:gravity="center"
+        android:drawableTint="@color/colorAppMain"
+        android:id="@+id/tvAddNewAddress"
+        style="@style/txtMonBold"
+        android:textColor="@color/colorAppMain"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_plus"
+        android:text="Add New Address"
+        android:textSize="@dimen/_12ssp"
+        />
+    <View
+        android:id="@+id/view"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddNewAddress"
+        android:background="@color/colorGray2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp">
+
+    </View>
+
+    <androidx.recyclerview.widget.RecyclerView
+        style="@style/layoutSimple"
+        android:id="@+id/recyclerview"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

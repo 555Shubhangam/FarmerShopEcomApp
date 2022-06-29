@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity.LocationActivity">
+
+
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_pin"
+            android:translationY="-20dp"
+            android:layout_height="wrap_content"/>
+
+        <!--  <LinearLayout
+              android:id="@+id/linearLayout4"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="#EFEDED"
+              app:layout_constraintTop_toTopOf="parent">
+
+              <fragment
+                  android:id="@+id/place_autocomplete"
+                  android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+
+          </LinearLayout>-->
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#fff"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/ic_location" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="10dp"
+                    android:autoSizeMaxTextSize="18sp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/submit_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/bt_bg1"
+                android:text="Submit"
+                android:textSize="@dimen/_16ssp"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+</layout>

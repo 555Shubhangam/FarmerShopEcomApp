@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<androidx.core.widget.NestedScrollView
+    app:layout_constraintTop_toTopOf="parent"
+    android:id="@+id/nesttedScrollView_mainAct"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+<LinearLayout
+    android:visibility="visible"
+    android:id="@+id/main_lin_MainAct"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager_mainAct"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp" />
+
+        <!--<com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator_mainAct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="bottom"
+            android:paddingBottom="15dp"
+            app:centered="true"
+            app:fillColor="@color/colorPrimary"
+            app:pageColor="@color/colorWhite"
+            app:snap="false" />-->
+        <ProgressBar
+            android:layout_marginVertical="5dp"
+            android:padding="3dp"
+            android:background="@drawable/btn_red_6_bg"
+            android:backgroundTint="@color/white"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            android:indeterminateTint="@color/colorAccent"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/pbProgress_slider_mainAct">
+        </ProgressBar>
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        style="@style/layout"
+        app:cardElevation="@dimen/_5sdp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="@color/colorGray4"
+            android:weightSum="0"
+                android:id="@+id/layoutCategory"
+            android:orientation="horizontal"
+            style="@style/layout">
+            <TextView
+                android:layout_weight="1"
+                style="@style/txtMonBold"
+                android:textAllCaps="true"
+                android:textColor="@color/colorGray"
+                android:text="@string/category"
+                />
+            <TextView
+                android:padding="5dp"
+                android:id="@+id/tv_seeAllCategory_mainAct"
+                android:text="@string/see_all"
+                android:layout_weight="0"
+                style="@style/txtMonBold"
+                android:textColor="@color/colorPrimary"
+                />
+        </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@+id/layoutCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp">
+        <include
+            android:id="@+id/viewHorizonatal1"
+            layout="@layout/line_horizontal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_category_mainAct"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewHorizonatal1"
+
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:itemCount="6"
+            tools:listitem="@layout/category_row_home" />
+
+        <ProgressBar
+            app:layout_constraintTop_toBottomOf="@+id/recycler_category_mainAct"
+            android:id="@+id/pbProgress_category_mainAct"
+            style="@style/progressBar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_centerInParent="true"
+            android:backgroundTint="@color/colorGray5"
+            android:indeterminateTint="@color/colorAppMain"
+            android:visibility="gone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+   <!-- <LinearLayout
+        android:layout_marginHorizontal="5dp"
+        android:backgroundTint="@color/colorGray4"
+        android:weightSum="0"
+        android:orientation="horizontal"
+        style="@style/layoutBackground">
+        <TextView
+            android:layout_weight="1"
+            style="@style/txtMonBold"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="@string/featured_product"
+            />
+
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/tv_seeAllFeatured_mainAct"
+            android:text="@string/see_all"
+            android:layout_weight="0"
+            style="@style/txtMonBold"
+            android:textColor="@color/colorPrimary"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_featured_mainAct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="5dp" />
+        <ProgressBar
+            style="@style/progressBar"
+            android:backgroundTint="@color/colorGray5"
+            android:visibility="visible"
+            android:indeterminateTint="@color/colorAppMain"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/pbProgress_featured_mainAct"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginHorizontal="5dp"
+        android:backgroundTint="@color/colorGray4"
+        android:weightSum="0"
+        android:orientation="horizontal"
+        style="@style/layoutBackground">
+        <TextView
+            android:layout_weight="1"
+            style="@style/txtMonBold"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="@string/most_selling_product"
+            />
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/tv_seeAllMostSelling_mainAct"
+            android:text="@string/see_all"
+            android:layout_weight="0"
+            style="@style/txtMonBold"
+            android:textColor="@color/colorPrimary"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/recycler_mostSelling_mainAct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ProgressBar
+            style="@style/progressBar"
+            android:backgroundTint="@color/colorGray5"
+            android:visibility="visible"
+            android:indeterminateTint="@color/colorAppMain"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/pbProgress_mostSell_mainAct"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginHorizontal="5dp"
+        android:backgroundTint="@color/colorGray4"
+        android:weightSum="0"
+        android:orientation="horizontal"
+        style="@style/layoutBackground">
+        <TextView
+            android:layout_weight="1"
+            style="@style/txtMonBold"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="@string/products"
+            />
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/tv_seeAllProduct_mainAct"
+            android:text="@string/see_all"
+            android:layout_weight="0"
+            style="@style/txtMonBold"
+            android:textColor="@color/colorPrimary"
+            />
+    </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:nestedScrollingEnabled="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/recycler_product_mainAct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <ProgressBar
+        style="@style/progressBar"
+        android:backgroundTint="@color/colorGray5"
+        android:visibility="visible"
+        android:indeterminateTint="@color/colorAppMain"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/pbProgress_product_mainAct"
+        />
+</LinearLayout>-->
+    <androidx.cardview.widget.CardView
+        style="@style/layout"
+        app:cardElevation="@dimen/_5sdp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:backgroundTint="@color/colorGray4"
+                android:weightSum="0"
+                android:id="@+id/layoutCategory1"
+                android:orientation="horizontal"
+                style="@style/layout">
+                <TextView
+                    android:layout_weight="1"
+                    style="@style/txtMonBold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorGray"
+                    android:text="@string/products"
+                    />
+                <TextView
+                    android:padding="5dp"
+                    android:id="@+id/tv_seeAllFeatured_mainAct"
+                    android:text="@string/see_all"
+                    android:layout_weight="0"
+                    style="@style/txtMonBold"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintTop_toBottomOf="@+id/layoutCategory1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp">
+                <include
+                    android:id="@+id/viewHorizonatal2"
+                    layout="@layout/line_horizontal" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_featured_mainAct"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewHorizonatal2"
+
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    tools:itemCount="6"
+                    tools:listitem="@layout/category_row_home" />
+
+                <ProgressBar
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_featured_mainAct"
+                    android:id="@+id/pbProgress_featured_mainAct"
+                    style="@style/progressBar"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_centerInParent="true"
+                    android:backgroundTint="@color/colorGray5"
+                    android:indeterminateTint="@color/colorAppMain"
+                    android:visibility="gone" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        style="@style/layout"
+        app:cardElevation="@dimen/_5sdp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:backgroundTint="@color/colorGray4"
+                android:weightSum="0"
+                android:id="@+id/layoutCategory2"
+                android:orientation="horizontal"
+                style="@style/layout">
+                <TextView
+                    android:layout_weight="1"
+                    style="@style/txtMonBold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorGray"
+                    android:text="@string/most_selling_product"
+                    />
+                <TextView
+                    android:padding="5dp"
+                    android:id="@+id/tv_seeAllMostSelling_mainAct"
+                    android:text="@string/see_all"
+                    android:layout_weight="0"
+                    style="@style/txtMonBold"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintTop_toBottomOf="@+id/layoutCategory2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp">
+                <include
+                    android:id="@+id/viewHorizonatal3"
+                    layout="@layout/line_horizontal" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_mostSelling_mainAct"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewHorizonatal3"
+
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    tools:itemCount="6"
+                    tools:listitem="@layout/category_row_home" />
+
+                <ProgressBar
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_mostSelling_mainAct"
+                    android:id="@+id/pbProgress_product_mainAct"
+                    style="@style/progressBar"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_centerInParent="true"
+                    android:backgroundTint="@color/colorGray5"
+                    android:indeterminateTint="@color/colorAppMain"
+                    android:visibility="gone" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".mvvm_data.ui.fragment.ProductFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/contraintlayout"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_10sdp">
+        <include
+        android:id="@+id/toolbar"
+        layout="@layout/include_toolbar"/>
+        <!--<LinearLayout
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/toolbar"
+            style="@style/layout">
+
+            <ImageView
+                android:id="@+id/toolbar_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_arrow_back" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:text="Toolbar"
+                android:textSize="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:id="@+id/toolbar_title"
+                style="@style/txtMonBold" />
+        </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:id="@+id/lin_searchProduct_mainAct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/txt_searchProduct"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/_5sdp"
+            android:backgroundTint="@color/white"
+            style="@style/editMonsRegWhiteBackgrounf"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray"
+            android:hint="@string/search_all_farmer_products"
+            app:drawableLeftCompat="@drawable/ic_search" />
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contraintlayout"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/recyclerProduct"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            />
+
+        <ProgressBar
+            app:layout_constraintTop_toBottomOf="@+id/recyclerProduct"
+            android:id="@+id/pbProgress_category_mainAct"
+            style="@style/progressBar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_centerInParent="true"
+            android:backgroundTint="@color/colorGray5"
+            android:indeterminateTint="@color/colorAppMain"
+            android:visibility="gone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

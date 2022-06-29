@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorGray3"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+       style="@style/layoutSimple"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="@dimen/_10sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingVertical="@dimen/_5sdp"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_marginStart="@dimen/_5sdp"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/layoutDefaultAddress"
+                android:id="@+id/ratiobtn"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:id="@+id/layoutDefaultAddress"
+                app:layout_constraintLeft_toRightOf="@+id/ratiobtn"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:padding="2dp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/tvAddress"
+                    android:drawableTint="@color/colorAppMain"
+                    android:id="@+id/tvDefaultAddress"
+                    style="@style/txtMonBold"
+                    android:textColor="@color/colorRed"
+                    android:text="@string/default_address"
+                    android:textSize="@dimen/_10ssp"
+                    />
+                <TextView
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="0dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/tvDefaultAddress"
+                    android:padding="2dp"
+                    android:gravity="center|start"
+                    android:layout_height="wrap_content"
+                    android:drawableTint="@color/colorAppMain"
+                    android:id="@+id/tvAddress"
+                    style="@style/txtMonBold"
+                    android:textColor="@color/black"
+                    android:text="@string/home"
+                    android:textSize="@dimen/_10ssp"
+                    />
+                <TextView
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddress"
+                    android:padding="2dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:gravity="center|start"
+                    android:layout_height="wrap_content"
+                    android:drawableTint="@color/colorAppMain"
+                    android:id="@+id/tvName"
+                    style="@style/txtMonReg"
+                    android:textColor="@color/black"
+                    android:text="Priya Upadhyay"
+
+                    />
+                <TextView
+                    app:layout_constraintTop_toBottomOf="@+id/tvName"
+                    android:padding="2dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:gravity="center|start"
+                    android:layout_height="wrap_content"
+                    android:drawableTint="@color/colorAppMain"
+                    android:id="@+id/tvblock"
+                    style="@style/txtMonReg"
+                    android:textColor="@color/black"
+                    android:text="222,h block"
+
+                    />
+
+                <TextView
+                    app:layout_constraintTop_toBottomOf="@+id/tvblock"
+                    android:padding="2dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:gravity="center|start"
+                    android:layout_height="wrap_content"
+                    android:drawableTint="@color/colorAppMain"
+                    android:id="@+id/tvsector"
+                    style="@style/txtMonReg"
+                    android:textColor="@color/black"
+                    android:text="sector 50"
+
+                    />
+                <TextView
+                    app:layout_constraintTop_toBottomOf="@+id/tvsector"
+                    android:padding="2dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:gravity="center|start"
+                    android:layout_height="wrap_content"
+                    android:drawableTint="@color/colorAppMain"
+                    android:id="@+id/tvnearest"
+                    style="@style/txtMonReg"
+                    android:textColor="@color/black"
+                    android:text=" Metro Station sector 50"
+
+                    />
+                <TextView
+                    app:layout_constraintTop_toBottomOf="@+id/tvnearest"
+                    android:padding="2dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:gravity="center|start"
+                    android:layout_height="wrap_content"
+                    android:drawableTint="@color/colorAppMain"
+                    android:id="@+id/tvaddress"
+                    style="@style/txtMonReg"
+                    android:textColor="@color/black"
+                    android:text=" sector 50 ,Noida -29876"
+
+                    />
+
+                <TextView
+                    app:layout_constraintTop_toBottomOf="@+id/tvaddress"
+                    android:padding="2dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:gravity="center|start"
+                    android:layout_height="wrap_content"
+                    android:drawableTint="@color/colorAppMain"
+                    android:id="@+id/tvphoneNo"
+                    style="@style/txtMonReg"
+                    android:textColor="@color/black"
+                    android:text="Ph:999976545"
+
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
