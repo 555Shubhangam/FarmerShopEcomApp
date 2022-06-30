@@ -1,6 +1,9 @@
 package com.farmershop.utils
 
 object Constants {
+    val CAMERA_REQUEST: Int = 103
+    val GALLERY_REQUEST: Int = 102
+    const val REQUEST_PERMISSION: Int = 101
     const val SERVER_URL = "http://quytech.net/Mediface/Mediface/public/api/v1/"
     const val TYPE = "type"
     const val Tag = "Tag"

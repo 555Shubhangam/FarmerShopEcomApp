@@ -73,5 +73,9 @@
     <string name="delivery_address">Delivery Address</string>
     <string name="default_address">Default Address :</string>
     <string name="delete">Delete</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="select_dob">Select DOB</string>
+    <string name="save">Save</string>
 
 </resources>
