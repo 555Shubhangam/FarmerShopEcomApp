@@ -41,6 +41,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".mvvm_data.ui.Activity.OrderSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mvvm_data.ui.Activity.MyOrderDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mvvm_data.ui.Activity.MyOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".mvvm_data.ui.Activity.MyAddressActivity"
             android:exported="true" />
         <activity
@@ -80,7 +89,7 @@
         <activity android:name=".ui.profile.Location" />
         <activity android:name=".ui.auth.Register" />
         <activity android:name=".ui.product.Cart" />
-        <activity android:name=".ui.search.Search" />
+        <activity android:name=".ui.search.Search"></activity>
         <activity android:name=".ui.store.Store" />
         <activity android:name=".ui.profile.Profile" />
         <activity android:name=".ui.auth.OTP" />

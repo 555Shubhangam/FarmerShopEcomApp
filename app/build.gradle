@@ -118,5 +118,5 @@ dependencies {
     implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
 
 //    kapt "com.android.databinding:compiler:$androidPluginVersion"
-
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

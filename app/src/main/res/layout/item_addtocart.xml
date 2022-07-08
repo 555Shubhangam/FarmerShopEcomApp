@@ -58,7 +58,7 @@
                     android:id="@+id/category"
                     style="@style/txtMonBold"
                     android:text="@string/mix_vegitable"
-                    android:textSize="13sp"
+                    android:textSize="@dimen/_11ssp"
                     />
                 <TextView
                     android:layout_marginTop="@dimen/_10sdp"
@@ -79,9 +79,10 @@
                         android:id="@+id/tvProductDiscountPrice"
                         style="@style/txtMonBold"
                         android:text="₹350"
-                        android:textSize="13sp"
+                        android:textSize="@dimen/_11ssp"
                         />
                     <TextView
+                        android:textSize="@dimen/_9ssp"
                         android:paddingVertical="2dp"
                         android:id="@+id/tvProductPrice"
                         style="@style/txtMonBoldOffer"

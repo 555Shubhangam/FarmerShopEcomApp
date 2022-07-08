@@ -5,32 +5,32 @@ import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.farmershop.R
-import com.farmershop.appSDK.BaseActivity
-import com.farmershop.appSDK.BaseActivityUser
 import com.farmershop.databinding.ItemAddtocartBinding
+import com.farmershop.databinding.ItemMyOrderBinding
 import com.farmershop.mvvm_data.ui.adapter.RecyclerCallback
 import com.farmershop.mvvm_data.ui.adapter.RecyclerViewGenricAdapter
+import kotlinx.android.synthetic.main.activity_my_order.*
 import kotlinx.android.synthetic.main.fragment_add_to_cart.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
-class AddToCartActivity : BaseActivity() {
+class MyOrderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_to_cart)
+        setContentView(R.layout.activity_my_order)
         toolbar_back.setOnClickListener {
             finish()
         }
-        toolbar_title.text = getString(R.string.addCart)
+        toolbar_title.text = getString(R.string.myOrders)
 
-        tvProductAdd.setOnClickListener {
-            intent = Intent(this,OrderSummaryActivity::class.java)
-            startActivity(intent)
+        toolbar_back.setOnClickListener {
+            finish()
         }
-        recycler_addToCart.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL,false)
-        setAdapterProduct(recycler_addToCart)
+        rvMyOrder.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        setAdapterProduct(rvMyOrder)
     }
 
     fun setAdapterProduct(recyclerView: RecyclerView) {
@@ -46,12 +46,12 @@ class AddToCartActivity : BaseActivity() {
         minAgeArray.add("23")
         minAgeArray.add("24")
         minAgeArray.add("25")
-        val rvAdapProgress = RecyclerViewGenricAdapter<String, ItemAddtocartBinding>(
+        val rvAdapProgress = RecyclerViewGenricAdapter<String, ItemMyOrderBinding>(
             minAgeArray,
-            R.layout.item_addtocart, object :
-                RecyclerCallback<ItemAddtocartBinding, String> {
+            R.layout.item_my_order, object :
+                RecyclerCallback<ItemMyOrderBinding, String> {
                 override fun bindData(
-                    binder: ItemAddtocartBinding,
+                    binder: ItemMyOrderBinding,
                     model: String,
                     position: Int,
                     itemView: View
@@ -59,16 +59,16 @@ class AddToCartActivity : BaseActivity() {
 
                     binder.apply {
 
-                        tvProductPrice.setPaintFlags(tvProductPrice.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
-                        /* txtName.text = model
+                       //  txtName.text = model
 
-                         llItemTop.setOnClickListener{
-                             updateTextViewDataForMinAge(txtName.getText().toString())
-                             bottomSheetFilterDialog?.dismiss()
-                         }*/
+                         tvFirstBtn.setOnClickListener{
+                             var intent =Intent(this@MyOrderActivity,MyOrderDetailsActivity::class.java)
+                             startActivity(intent)
+                         }
                     }
                 }
             })
         recyclerView.adapter = rvAdapProgress
 
-    }}
+    }
+}

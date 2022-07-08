@@ -12,6 +12,6 @@ class EditAddressActivity : AppCompatActivity() {
         toolbar_back.setOnClickListener {
             finish()
         }
-        toolbar_title.setText("Add Address")
+        toolbar_title.text = getString(R.string.addAdress);
     }
 }

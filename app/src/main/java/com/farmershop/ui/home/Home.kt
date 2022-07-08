@@ -29,6 +29,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.farmershop.appSDK.*
 import com.farmershop.data.network.ApiPojo
+import com.farmershop.mvvm_data.ui.Activity.EditAddressActivity
+import com.farmershop.mvvm_data.ui.Activity.MyOrderActivity
 import com.farmershop.mvvm_data.ui.Activity.SearchActivity
 import com.farmershop.mvvm_data.ui.fragment.CategoryFragment
 import com.farmershop.mvvm_data.ui.fragment.HomeFragment
@@ -183,6 +185,12 @@ class Home : BaseActivityUser(), NavigationView.OnNavigationItemSelectedListener
             }
             R.id.nav_logout -> {
                 AppSession.getInstance(applicationContext).logout()
+                drawerLayout.closeDrawers()
+                true
+            }
+            R.id.nav_myorders -> {
+                intent = Intent(this, MyOrderActivity::class.java)
+                startActivity(intent)
                 drawerLayout.closeDrawers()
                 true
             }

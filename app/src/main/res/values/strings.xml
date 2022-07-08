@@ -77,5 +77,35 @@
     <string name="editProfile">Edit Profile</string>
     <string name="select_dob">Select DOB</string>
     <string name="save">Save</string>
+    <string name="cancel_order">Cancel Order</string>
+    <string name="view_details">View Details</string>
+    <string name="need_help">Need Help</string>
+    <string name="myOrders">My Orders</string>
+    <string name="order_status">Order Status</string>
+    <string name="track_order">Track Order</string>
+    <string name="shipped">Shipped</string>
+    <string name="ordered">Ordered</string>
+    <string name="under_process">Under Process</string>
+    <string name="delivered">Delivered</string>
+    <string name="bill_details">Bill Details</string>
+    <string name="mrp">MRP</string>
+    <string name="product_discount">Product Discount</string>
+    <string name="bill_total">Bill Total</string>
+    <string name="order_details">Order Details</string>
+    <string name="order_id">Order Id</string>
+    <string name="paid_online">Paid Online</string>
+    <string name="payment_mode">Payment Mode</string>
+    <string name="deliver_to">Deliver To</string>
+    <string name="order_placed">Order Placed</string>
+    <string name="reorder">Reorder</string>
+    <string name="myOrdersDetails">My Order Details</string>
+    <string name="orderSummary">Order Summary</string>
+    <string name="addCart">Add To Cart</string>
+    <string name="place_order">Place Order</string>
+    <string name="make_payment">Make Payment</string>
+    <string name="total_coupon_discount">Coupon Discount</string>
+    <string name="delivery_charge">Delivery Charge</string>
+    <string name="change_add_address">Change/Add Address</string>
+    <string name="addAdress">Add Address</string>
 
 </resources>

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.farmershop.R
 import com.farmershop.appSDK.BaseFragment
 import com.farmershop.mvvm_data.ui.Activity.MyAddressActivity
+import com.farmershop.mvvm_data.ui.Activity.MyOrderActivity
 import com.farmershop.ui.profile.Profile
 import kotlinx.android.synthetic.main.fragment_my_address.*
 import kotlinx.android.synthetic.main.fragment_product.*
@@ -35,6 +36,10 @@ class MyAccountFragment : BaseFragment() {
     private fun initView() {
         tvDeliveryAddress.setOnClickListener {
             var intent =Intent(requireContext(),MyAddressActivity::class.java)
+            startActivity(intent)
+        }
+        tvOrderHistory.setOnClickListener {
+            var intent =Intent(requireContext(),MyOrderActivity::class.java)
             startActivity(intent)
         }
         tvWishlist.setOnClickListener {
