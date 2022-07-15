@@ -107,5 +107,7 @@
     <string name="delivery_charge">Delivery Charge</string>
     <string name="change_add_address">Change/Add Address</string>
     <string name="addAdress">Add Address</string>
+    <string name="ordering">Ordering</string>
+    <string name="faq">FAQ</string>
 
 </resources>

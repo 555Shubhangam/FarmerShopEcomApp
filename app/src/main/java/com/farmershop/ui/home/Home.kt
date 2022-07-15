@@ -30,6 +30,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.farmershop.appSDK.*
 import com.farmershop.data.network.ApiPojo
 import com.farmershop.mvvm_data.ui.Activity.EditAddressActivity
+import com.farmershop.mvvm_data.ui.Activity.FAQActivity
 import com.farmershop.mvvm_data.ui.Activity.MyOrderActivity
 import com.farmershop.mvvm_data.ui.Activity.SearchActivity
 import com.farmershop.mvvm_data.ui.fragment.CategoryFragment
@@ -190,6 +191,12 @@ class Home : BaseActivityUser(), NavigationView.OnNavigationItemSelectedListener
             }
             R.id.nav_myorders -> {
                 intent = Intent(this, MyOrderActivity::class.java)
+                startActivity(intent)
+                drawerLayout.closeDrawers()
+                true
+            }
+            R.id.nav_faq -> {
+                intent = Intent(this, FAQActivity::class.java)
                 startActivity(intent)
                 drawerLayout.closeDrawers()
                 true

@@ -9,11 +9,12 @@
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_add_to_cart.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_demo.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_edit_address.xml" value="0.20389249304911955" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_faqactivity.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_my_address.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_my_order.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_my_order_details.xml" value="0.16666666666666666" />
-        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_order_summary.xml" value="0.12" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_order_summary.xml" value="0.14666666666666667" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_product_description.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_search.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_splash.xml" value="0.17552083333333332" />
@@ -32,6 +33,8 @@
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/include_toolbar_home.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/include_toolbar_product.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/item_addtocart.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/item_faq.xml" value="0.22" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/item_faq_ques_ans.xml" value="0.3333333333333333" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/item_my_address.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/item_my_order.xml" value="0.22" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/item_my_order_details.xml" value="0.22" />
