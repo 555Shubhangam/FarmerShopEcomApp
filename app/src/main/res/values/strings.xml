@@ -8,9 +8,15 @@
     <string name="i_agree">I am agree with terms and conditions.</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
-
+    <string name="don_t_have_an_account">Don\'t have an account? Sign Up</string>
     <string name="mobile_number_or_emaild_id">Mobile Number or Emaild Id</string>
+    <string name="something_went_wrong">Something Went Wrong!! Try Again</string>
+    <string name="no_internet">No Internet Connection!! Try Again</string>
+    <string name="no_data">No Data Found!!</string>
+    <string name="welcome_to_mediface">Welcome to Farmershop</string>
+    <string name="already_have_an_account">Already have an account? Log In</string>
     <string name="email">Email</string>
+    <string name="email_and_mobile">Email/Mobile</string>
     <string name="mobile">Mobile</string>
     <string name="password">Password</string>
     <string name="app_version">App Version</string>
@@ -109,5 +115,20 @@
     <string name="addAdress">Add Address</string>
     <string name="ordering">Ordering</string>
     <string name="faq">FAQ</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="str_null" />
+    <string name="confirm_password">Confirm Password</string>
+    <string name="username">Username</string>
+    <string name="password_not_matched">Password is not matched</string>
+    <string name="cnf_password_required">Confirm Password is required</string>
+    <string name="password_required">Password is required</string>
+    <string name="address_required">Address is required</string>
+    <string name="valid_mobile_number_required">Valid Mobile Number is required</string>
+    <string name="valid_email_required">Valid Email Id is required</string>
+    <string name="username_required">Username is required</string>
+    <string name="name_required">Name is required</string>
+    <string name="email_required">Email is required</string>
+    <string name="mobile_required">Mobile is required</string>
+    <string name="email_and_mobile_required">Email/Mobile is required</string>
 
 </resources>

@@ -31,6 +31,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
+        android:name=".ui.base.MyApp"
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
@@ -41,43 +42,43 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".mvvm_data.ui.Activity.FAQActivity"
+            android:name=".ui.activity.FAQActivity"
             android:exported="false" />
         <activity
-            android:name=".mvvm_data.ui.Activity.OrderSummaryActivity"
+            android:name=".ui.activity.OrderSummaryActivity"
             android:exported="false" />
         <activity
-            android:name=".mvvm_data.ui.Activity.MyOrderDetailsActivity"
+            android:name=".ui.activity.MyOrderDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".mvvm_data.ui.Activity.MyOrderActivity"
+            android:name=".ui.activity.MyOrderActivity"
             android:exported="false" />
         <activity
-            android:name=".mvvm_data.ui.Activity.MyAddressActivity"
+            android:name=".ui.activity.MyAddressActivity"
             android:exported="true" />
         <activity
-            android:name=".mvvm_data.ui.Activity.ProductDescriptionActivity"
+            android:name=".ui.activity.ProductDescriptionActivity"
             android:exported="true" />
         <activity
-            android:name=".mvvm_data.ui.Activity.EditAddressActivity"
+            android:name=".ui.activity.EditAddressActivity"
             android:exported="true" />
         <activity
-            android:name=".mvvm_data.ui.Activity.AddToCartActivity"
+            android:name=".ui.activity.AddToCartActivity"
             android:exported="true" />
         <activity
-            android:name=".mvvm_data.ui.Activity.SearchActivity"
+            android:name=".ui.activity.SearchActivity"
             android:exported="true" />
         <activity
-            android:name=".mvvm_data.ui.Activity.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.location.MapActivity"
+            android:name=".ui.activity.MapActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.location.SearchLocationActivity"
+            android:name=".ui.activity.SearchLocationActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -85,23 +86,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.product.ProductDetails" />
+        <activity android:name=".ui.activity.auth.Register" />
+        <activity android:name=".ui.activity.Profile" />
+        <activity android:name=".ui.activity.auth.OTP" />
+        <activity android:name=".ui.activity.auth.Login" />
         <activity
-            android:name=".ui.product.CategoryItems"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".ui.profile.Location" />
-        <activity android:name=".ui.auth.Register" />
-        <activity android:name=".ui.product.Cart" />
-        <activity android:name=".ui.search.Search" />
-        <activity android:name=".ui.store.Store" />
-        <activity android:name=".ui.profile.Profile" />
-        <activity android:name=".ui.auth.OTP" />
-        <activity android:name=".ui.auth.Login" />
-        <activity
-            android:name=".ExitActivity"
+            android:name=".ui.activity.ExitActivity"
             android:screenOrientation="nosensor" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ui.home.Home" />
+        <activity android:name=".ui.activity.Home" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

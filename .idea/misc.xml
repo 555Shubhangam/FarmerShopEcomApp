@@ -3,20 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/drawable/bg_white_solid_round_grey_stroke.xml" value="0.133" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/drawable/btn_gray_6_bg.xml" value="0.133" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/drawable/outline_curve_bg.xml" value="0.133" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_add_address.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_add_to_cart.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_demo.xml" value="0.17552083333333332" />
-        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_edit_address.xml" value="0.20389249304911955" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_edit_address.xml" value="0.14666666666666667" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_faqactivity.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_map.xml" value="0.1" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_my_address.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_my_order.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_my_order_details.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_order_summary.xml" value="0.14666666666666667" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_product_description.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_search.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_search_location.xml" value="0.1" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/activity_splash.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/cart.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/cart_item_row.xml" value="0.17552083333333332" />
@@ -24,8 +27,11 @@
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/category_items.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/category_product_home.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/category_row_home.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/content_main.xml" value="0.12239583333333333" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/fragment_add_to_cart.xml" value="0.1" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/fragment_category.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/fragment_home.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/fragment_home2.xml" value="0.12239583333333333" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/fragment_my_address.xml" value="0.14666666666666667" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/fragment_product.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/home.xml" value="0.17552083333333332" />
@@ -40,10 +46,16 @@
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/item_my_order_details.xml" value="0.22" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/item_order_summary.xml" value="0.22" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/item_wishlist.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/layout_progress_dialog.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/line_horizontal.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/location.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/login.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/otp.xml" value="0.16666666666666666" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/product_description.xml" value="0.17552083333333332" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/product_details.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/product_offers.xml" value="0.1" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/profile.xml" value="0.14666666666666667" />
+        <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/register.xml" value="0.22" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/search.xml" value="0.22" />
         <entry key="..\:/Android Project/FarmerShopEcomApp/app/src/main/res/layout/user_details.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/priya.upadhyay/AndroidStudioProjects/android-ecom-customer/app/src/main/res/drawable-v24/bt_bg1.xml" value="0.2203125" />

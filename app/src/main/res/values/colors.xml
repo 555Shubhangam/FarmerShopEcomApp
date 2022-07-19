@@ -3,7 +3,7 @@
     <color name="colorPrimary">#2e7d32</color>
     <color name="colorPrimaryDark">#1b5e20</color>
     <color name="colorAccent">#66bb6a</color>
-
+    <color name="edit_text_gray">#F4F4F4</color>
     <color name="green">#2E7D32</color>
     <color name="blue">#126FA1</color>
     <color name="darkBlue">#0B2267</color>
@@ -20,7 +20,7 @@
     <color name="colorGrayLight">#8C8A8A</color>
     <color name="colorGray1">#4D4D4D</color>
     <color name="colorGray2">#E1E1E1</color>
-    <color name="colorGray3">#D9D9D9</color>
+    <color name="colorGray3">#EDEAEA</color>
     <color name="colorGray4">#d8d8d8</color>
     <color name="colorGray5">#FAFAFA</color>
     <color name="colorAppMain">#36B729</color>

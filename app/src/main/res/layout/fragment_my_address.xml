@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".mvvm_data.ui.fragment.MyAccountFragment">
+    tools:context=".ui.fragment.MyAccountFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintTop_toTopOf="parent"
         android:paddingVertical="@dimen/_10sdp"

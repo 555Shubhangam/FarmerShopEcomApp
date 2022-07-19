@@ -1,25 +1,36 @@
 package com.farmershop.utils
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.content.Intent
 import android.location.Address
 import android.location.Geocoder
 import android.location.LocationManager
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Build
-import androidx.fragment.app.Fragment
-
 import android.provider.Settings
-import com.farmershop.R
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.material.snackbar.Snackbar
 import java.io.IOException
-import java.lang.Exception
-import java.lang.IndexOutOfBoundsException
 import java.util.*
-import kotlin.coroutines.coroutineContext
 
 object Utility {
+    fun hideKeyboard(activity: Activity) {
+        val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        //Find the currently focused view, so we can grab the correct window token from it.
+        var view = activity.currentFocus
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
     fun isLocationEnabled(context: Context): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             val lm = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -113,7 +124,40 @@ object Utility {
         return address
     }
 
+    fun hasInternetConnection(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val activeNetwork = connectivityManager.activeNetwork ?: return false
+            val capabilities =
+                connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
+            return when {
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+                else -> false
+            }
+        }
+//         else {
+//            connectivityManager.activeNetworkInfo?.run {
+//                return when(type) {
+//                    ConnectivityManager.TYPE_WIFI -> true
+//                    ConnectivityManager.TYPE_MOBILE -> true
+//                    ConnectivityManager.TYPE_ETHERNET -> true
+//                    else -> false
+//                }
+//            }
+//        }
+        return false
+    }
+    fun showSnackBar(view: View, message: String) {
+        Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
+    }
+
+    fun showToast(context: Context?, message: String?) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
 }
 interface LocationDialogCLickListner{
     fun onSettingClick()

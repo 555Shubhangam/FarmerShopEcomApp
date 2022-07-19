@@ -4,7 +4,10 @@ object Constants {
     val CAMERA_REQUEST: Int = 103
     val GALLERY_REQUEST: Int = 102
     const val REQUEST_PERMISSION: Int = 101
-    const val SERVER_URL = "http://quytech.net/Mediface/Mediface/public/api/v1/"
+    //Testing Base URL....
+    const val SERVER_URL = "http://test.farmershoptechindia.com/public/api/"
+    //Production Base URL....
+    // const val SERVER_URL = "https://farmershop.co.in/public/api/"
     const val TYPE = "type"
     const val Tag = "Tag"
     const val Title = "Title"
