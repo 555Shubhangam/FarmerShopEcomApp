@@ -19,6 +19,7 @@
     <string name="email_and_mobile">Email/Mobile</string>
     <string name="mobile">Mobile</string>
     <string name="password">Password</string>
+    <string name="new_password">New Password</string>
     <string name="app_version">App Version</string>
     <string name="resnd_otp">Resnd OTP</string>
     <string name="verify_otp">Verify OTP</string>
@@ -62,6 +63,7 @@
     <string name="address_details">Address Details</string>
     <string name="pin_code">Pin Code</string>
     <string name="address">Address</string>
+    <string name="old_password">Old Password</string>
     <string name="landmark_area">Landmark / Area</string>
     <string name="will_be_used_to_assist_delivery">Will be used to assist delivery</string>
     <string name="city_state">City , State</string>
@@ -76,6 +78,8 @@
     <string name="edit">Edit</string>
     <string name="order_history">Order History</string>
     <string name="wishlist">Wishlist</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="change_password">Change Password</string>
     <string name="delivery_address">Delivery Address</string>
     <string name="default_address">Default Address :</string>
     <string name="delete">Delete</string>
@@ -122,13 +126,17 @@
     <string name="password_not_matched">Password is not matched</string>
     <string name="cnf_password_required">Confirm Password is required</string>
     <string name="password_required">Password is required</string>
+    <string name="old_password_required">Old Password is required</string>
     <string name="address_required">Address is required</string>
     <string name="valid_mobile_number_required">Valid Mobile Number is required</string>
     <string name="valid_email_required">Valid Email Id is required</string>
     <string name="username_required">Username is required</string>
+    <string name="otp_required">OTP is required</string>
     <string name="name_required">Name is required</string>
     <string name="email_required">Email is required</string>
     <string name="mobile_required">Mobile is required</string>
     <string name="email_and_mobile_required">Email/Mobile is required</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="submit">Submit</string>
 
 </resources>

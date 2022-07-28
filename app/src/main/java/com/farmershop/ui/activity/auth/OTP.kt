@@ -3,57 +3,124 @@ package com.farmershop.ui.activity.auth
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.farmershop.R
+import com.farmershop.data.model.request.OTPRequest
+import com.farmershop.data.viewModel.OTPViewModal
+import com.farmershop.databinding.OtpBinding
 import com.farmershop.ui.activity.Home
 import com.farmershop.utils.*
 import com.farmershop.ui.base.BaseActivity
-import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.FirebaseException
-import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.include_progress_bar.*
 import kotlinx.android.synthetic.main.otp.*
 
 class OTP : BaseActivity() {
+    lateinit var binding: OtpBinding
+    private lateinit var viewModal: OTPViewModal
     var username = ""
-    var purpose="login"
+   // var purpose="login"
+    var purpose=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.otp)
+       // setContentView(R.layout.otp)
+        binding = DataBindingUtil.setContentView(this, R.layout.otp)
+        viewModal = ViewModelProvider(this@OTP).get(OTPViewModal::class.java)
         init()
+        setObserver()
     }
 
     private fun init() {
-        auth = Firebase.auth
-        defineCallback()
-        if (intent.hasExtra("username")) {
+       /* auth = FirebaseAuth.getInstance()
+        defineCallback()*/
+       /* if (intent.hasExtra("username")) {
             username = intent.getStringExtra("username")
             lblUsername.text = username
         }
         if(intent.hasExtra("purpose")){
             purpose = intent.getStringExtra("purpose")
+        }*/
+        username = intent.getStringExtra(Constants.USER_NAME)
+        purpose = intent.getStringExtra(Constants.AUTH_TYPE)
+
+        lblUsername.text =username
+        binding.btnVerify.setOnClickListener {
+            Utility.hideKeyboard(this)
+            validation()
         }
 
-        if (Validation.isValidMobile(username)) {
+
+       // mobileOTP(username)
+
+        /*if (Validation.isValidMobile(username)) {
             mobileOTP(username)
-        }
+        }*/
 
-        btnResend.setOnClickListener {
+       /* btnResend.setOnClickListener {
             resendMobileOTP(username, resendToken)
         }
 
         btnVerify.setOnClickListener {
             verifyMobileNumber(storedVerificationId, otp.text.toString())
-        }
+        }*/
 
     }
 
-    //-----------Firebase Mobile Verification Start--------------
+    private fun validation() {
+        if(Validation.isEmpty(binding.edtotp.text.toString())){
+            StaticMethods.alert(this, getString(R.string.otp_required))
+        }  else{
+            Utility.hideKeyboard(this)
+            OTPVerify()
+        }
+    }
+    private fun OTPVerify() {
+      val  otp = binding.edtotp.text.toString()
+       // val request = OTPRequest(username,otp)
+        viewModal.otpVerification(username,otp)
+    }
+
+    private fun setObserver() {
+        viewModal.otpResponse.observe(this) { response ->
+            Log.d("ressponsexcxmessage ",response.message.toString())
+
+            when (response) {
+
+                is Resource.Success -> {
+                    ProgressDialog.hideProgressBar()
+
+                    Toast.makeText(this, response.message.toString(), Toast.LENGTH_LONG).show()
+                    if (purpose=="ForgotPassword"){
+                        startActivity(Intent(this, ResetPasswordActivity::class.java)
+                            .putExtra(Constants.USER_NAME,username))
+                        finish()
+                    }
+                    else{
+                        startActivity(Intent(this, Home::class.java))
+                        finish()
+                    }
+
+
+                }
+                is Resource.Loading -> {
+                    ProgressDialog.showProgressBar(this)
+                }
+                is Resource.Error -> {
+                    ProgressDialog.hideProgressBar()
+                    Toast.makeText(
+                        applicationContext,
+                        response.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+    }
+
+
+/*    //-----------Firebase Mobile Verification Start--------------
     private lateinit var auth: FirebaseAuth
     private var verificationInProgress = false
     private var storedVerificationId: String? = ""
@@ -96,14 +163,22 @@ class OTP : BaseActivity() {
     }
 
     private fun mobileOTP(phoneNumber: String) {
-        val options = PhoneAuthOptions.newBuilder(auth)
+        val phoneNum = "+91$phoneNumber"
+        Log.d("apicalssd","OTP SEND")
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+            phoneNum,
+            60,
+            TimeUnit.SECONDS,
+            this,
+            callbacks)
+        *//*val options = PhoneAuthOptions.newBuilder(auth)
             .setPhoneNumber("+91$phoneNumber")       // Phone number to verify
             .setTimeout(60L, java.util.concurrent.TimeUnit.SECONDS) // Timeout and unit
             .setActivity(this)                 // Activity (for callback binding)
             .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
-        verificationInProgress = true
+        verificationInProgress = true*//*
     }
 
     private fun verifyMobileNumber(verificationId: String?, code: String) {
@@ -154,6 +229,6 @@ class OTP : BaseActivity() {
         }else{
             StaticMethods.log("updateUI","OTP Not Verified")
         }
-    }
+    }*/
 
 }

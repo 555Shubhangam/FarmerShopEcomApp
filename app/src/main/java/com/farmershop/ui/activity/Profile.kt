@@ -11,27 +11,43 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.farmershop.R
+import com.farmershop.data.viewModel.ProfileViewModal
+import com.farmershop.data.viewModel.ResetPasswordViewModal
+import com.farmershop.databinding.ActivityResetPasswordBinding
 import com.farmershop.ui.base.BaseActivityUser
 import com.farmershop.databinding.ProfileBinding
+import com.farmershop.ui.activity.auth.Login
 import com.farmershop.utils.Constants
+import com.farmershop.utils.ProgressDialog
+import com.farmershop.utils.Resource
 import kotlinx.android.synthetic.main.include_toolbar.*
+import kotlinx.android.synthetic.main.profile.*
 import java.io.File
 import java.io.IOException
 
 class Profile : BaseActivityUser() {
     lateinit var binding: ProfileBinding
+    private lateinit var viewModal: ProfileViewModal
     private var bitmap: Bitmap? = null
     private var imageFile: File? = null
     private lateinit var imageUri: Uri
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.profile)
+        viewModal = ViewModelProvider(this@Profile).get(ProfileViewModal::class.java)
+
         init()
+        setObserver()
+
+        profileView()
     }
 
     private fun init() {
@@ -173,6 +189,38 @@ class Profile : BaseActivityUser() {
                 }
                 binding.userProfileCircleImg.setImageBitmap(bitmap)
                 //imageFile = File(Utils.getRealPathFromURI(this, uri)!!)
+            }
+        }
+    }
+    private fun profileView() {
+        viewModal.profileView()
+    }
+
+
+    private fun setObserver() {
+        viewModal.profileViewResponse.observe(this) { response ->
+            Log.d("ressponsexcxmessage ",response.data.toString())
+
+            when (response) {
+                is Resource.Success -> {
+                    ProgressDialog.hideProgressBar()
+                   edtName.setText(response.data?.username)
+                   edtEmail.setText(response.data?.email)
+                   edtPhoneNumber.setText(response.data?.mobile)
+                    tvSelectGender.text=response.data?.gender
+                    tvDob.text= response.data?.dob.toString()
+                }
+                is Resource.Loading -> {
+                    ProgressDialog.showProgressBar(this)
+                }
+                is Resource.Error -> {
+                    ProgressDialog.hideProgressBar()
+                    Toast.makeText(
+                        applicationContext,
+                        response.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }

@@ -3,8 +3,7 @@ package com.farmershop.data.model.response
 data class LoginResponse(
     val `data`: Data,
     val message: String,
-    val status: Int,
-    val status_text: String
+    val status: Boolean
 )
 
 data class Data(

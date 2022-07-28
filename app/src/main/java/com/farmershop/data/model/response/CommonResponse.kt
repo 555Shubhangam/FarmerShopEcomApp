@@ -8,3 +8,4 @@ data class CommonResponse(
     var message: String,
     var code: Int,
 )
+

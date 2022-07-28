@@ -4,7 +4,6 @@ import android.util.Log
 import com.farmershop.BuildConfig
 import com.farmershop.ui.base.MyApp
 import com.farmershop.utils.AppSession
-import com.farmershop.utils.AuthInterceptor
 import com.farmershop.utils.Constants
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -13,6 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
 
 object RetrofitBuilder {
     private lateinit var retrofit: Retrofit
@@ -32,8 +32,8 @@ object RetrofitBuilder {
             logging.setLevel(HttpLoggingInterceptor.Level.NONE);
         }
 
-        val client = OkHttpClient.Builder()
-           /* .addInterceptor(logging)
+   /*     val client = OkHttpClient.Builder()
+           *//* .addInterceptor(logging)
             .addInterceptor { chain: Interceptor.Chain ->
 
                 val token = AppSession.getInstance(MyApp.application).getToken()
@@ -44,11 +44,27 @@ object RetrofitBuilder {
                     .header("Authorization", token.trim())
                     .method(original.method, original.body).build()
                 chain.proceed(request)
-            }*/
+            }*//*
             .connectTimeout(300, TimeUnit.SECONDS)
             .readTimeout(300, TimeUnit.SECONDS)
-            .build()
-
+            .build()*/
+        val token = AppSession.getInstance(MyApp.application).getToken()
+        Log.e("tokennnnnn",token)
+        val  client: OkHttpClient = if (token!=null || token!="") {
+             OkHttpClient.Builder().addInterceptor(Interceptor { chain ->
+                 val original = chain.request()
+                 val builder = original.newBuilder()
+                 //  if (token != null || token != "")
+                 builder.addHeader("Authorization", "Bearer $token")
+                 val request = builder.build()
+                 chain.proceed(request)
+             }).build()
+         }else{
+             OkHttpClient.Builder()
+                 .connectTimeout(300, TimeUnit.SECONDS)
+                 .readTimeout(300, TimeUnit.SECONDS)
+                 .build()
+         }
         if (!(::retrofit.isInitialized)) {
             retrofit = Retrofit.Builder()
                 .baseUrl(Constants.SERVER_URL)

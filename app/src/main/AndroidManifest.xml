@@ -42,6 +42,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".ui.activity.setting.ChangePasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.auth.ForgotPasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.auth.ResetPasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.activity.FAQActivity"
             android:exported="false" />
         <activity

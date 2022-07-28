@@ -34,7 +34,7 @@ class SignupViewModel : ViewModel(){
     private fun handleResponse(response: Response<RegisterResponse>?): Resource<DataRegister> {
         if (response?.isSuccessful!!) {
             response.body()?.let { res ->
-                return if (res.status==Constants.HTTP_SUCCESS) {
+                return if (res.status) {
                     res.data.let { Resource.Success(res.message, it) }
                 } else {
                     Resource.Error(res.message)

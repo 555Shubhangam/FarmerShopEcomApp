@@ -38,6 +38,12 @@ class Login : BaseActivity() {
             startActivity(Intent(this@Login, Register::class.java))
             finish()
         }
+        binding.tvForgotPassword.setOnClickListener {
+            startActivity(Intent(this@Login, ForgotPasswordActivity::class.java)
+                .putExtra(Constants.Email_MOBILE,et_email.text.toString()))
+            //finish()
+
+        }
         binding.tvLogin.setOnClickListener {
             //startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
             if (TextUtils.isEmpty(binding.etEmail.text)) {
@@ -87,7 +93,10 @@ class Login : BaseActivity() {
                     //Log.d("LoginActivity", "LoginActivity setObserver: " + response.data)
                     response.data?.name?.let { AppSession.getInstance(this).setName(it) }
                     Toast.makeText(this, response.message.toString(), Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this@Login, Home::class.java))
+                    startActivity(Intent(this@Login, Home::class.java)
+                        .putExtra("username",binding.etEmail.text.toString())
+                        .putExtra("purpose","login"))
+
                     finish()
                     /*  response.data?.email?.let { PrefManager.write(PrefManager.EMAIL, it) }
                       response.data?.phone_number?.let { PrefManager.write(PrefManager.PHONE, it) }

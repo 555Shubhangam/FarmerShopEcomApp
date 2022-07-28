@@ -128,8 +128,30 @@
         android:textSize="15sp"
         />
     <View
-        android:id="@+id/view1"
         app:layout_constraintTop_toBottomOf="@+id/tvWishlist"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:id="@+id/viewSetting"
+        android:background="@color/colorGray2"
+        android:layout_height="2dp"/>
+    <TextView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:padding="2dp"
+        android:id="@+id/tvResetPassword"
+        app:layout_constraintTop_toBottomOf="@+id/viewSetting"
+        android:gravity="start"
+        style="@style/txtMonBold"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_fav"
+        android:drawableTint="@color/colorAppMain"
+        android:layout_width="match_parent"
+        android:text="@string/reset_password"
+        android:textSize="15sp"
+        />
+    <View
+        android:id="@+id/view1"
+        app:layout_constraintTop_toBottomOf="@+id/tvResetPassword"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:background="@color/colorGray2"

@@ -4,7 +4,7 @@ import com.farmershop.ui.activity.auth.Login
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 
 open class AppSession private constructor(context: Context) {
@@ -229,7 +229,7 @@ open class AppSession private constructor(context: Context) {
         sharedPreferences?.edit()?.clear()?.apply()
     }
     private fun clearSession(){
-        val auth=Firebase.auth
+        val auth= FirebaseAuth.getInstance()
         val sharedPreferences = ctx?.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences?.edit()
         editor?.clear()

@@ -10,6 +10,7 @@ import com.farmershop.ui.base.BaseFragment
 import com.farmershop.ui.activity.MyAddressActivity
 import com.farmershop.ui.activity.MyOrderActivity
 import com.farmershop.ui.activity.Profile
+import com.farmershop.ui.activity.setting.ChangePasswordActivity
 import kotlinx.android.synthetic.main.fragment_my_address.*
 
 class MyAccountFragment : BaseFragment() {
@@ -34,6 +35,12 @@ class MyAccountFragment : BaseFragment() {
             var intent =Intent(requireContext(), MyAddressActivity::class.java)
             startActivity(intent)
         }
+        tvResetPassword.setOnClickListener {
+            var intent =Intent(requireContext(), ChangePasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+
         tvOrderHistory.setOnClickListener {
             var intent =Intent(requireContext(), MyOrderActivity::class.java)
             startActivity(intent)

@@ -111,7 +111,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/inputlayoutPhoneNumber" />
 
                 <TextView
-                    android:id="@+id/tvDeliveryDetails1"
+                    android:id="@+id/tvDob"
                     style="@style/txtMonReg"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
