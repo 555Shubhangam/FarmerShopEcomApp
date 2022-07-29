@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "348605938724",
+    "project_id": "farmershop-97075",
+    "storage_bucket": "farmershop-97075.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348605938724:android:bf5a36cf605b05a373ecb1",
+        "android_client_info": {
+          "package_name": "com.farmershop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348605938724-aatvmsgl520mjb6vcmk84b8ndnjt9tcl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE10JI6Wuu0q_p4hSgOR7ln-mH3wVq87c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348605938724-aatvmsgl520mjb6vcmk84b8ndnjt9tcl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
