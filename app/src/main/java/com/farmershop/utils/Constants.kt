@@ -16,6 +16,7 @@ object Constants {
     const val USER_NAME = "USER_Name"
     const val Email_MOBILE = "Email_MOBILE"
     const val AUTH_TYPE = "AUTH_TYPE"
+    const val OTP_VERIFY_FOR = "OTP_VERIFY_FOR"
     const val ACCESS_TOKEN = "ACCESS_TOKEN"
     const val HTTP_SUCCESS = 200
     const val HTTP_CREATED = 201

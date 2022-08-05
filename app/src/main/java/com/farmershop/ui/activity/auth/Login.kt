@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.farmershop.data.model.request.LoginRequest
 import com.farmershop.data.viewModel.LoginViewModal
 import com.farmershop.ui.activity.Home
+import com.farmershop.ui.base.MyApp
 import com.farmershop.utils.*
 import kotlinx.android.synthetic.main.login.*
 
@@ -88,31 +89,29 @@ class Login : BaseActivity() {
             when (response) {
                 is Resource.Success -> {
                     ProgressDialog.hideProgressBar()
-                    response.data?.token?.let { AppSession.getInstance(this).setToken(it) }
-                    response.data?.id?.let { AppSession.getInstance(this).setUserId(it.toString()) }
-                    //Log.d("LoginActivity", "LoginActivity setObserver: " + response.data)
-                    response.data?.name?.let { AppSession.getInstance(this).setName(it) }
+                    response.data?.token?.let { AppSession.setToken(it) }
+                    val token = AppSession.getToken()
+                    Log.wtf("dddsdsdsdsdd", "token --- $token")
+                    response.data?.id?.let { AppSession.setUserId(it.toString()) }
+                    response.data?.name?.let { AppSession.setName(it) }
+                    response.data?.email?.let { AppSession.setEmail(it) }
+                    response.data?.mobile?.let { AppSession.setMobile(it) }
+                    response.data?.photo?.let { AppSession.setPhoto(it) }
+                    response.data?.username?.let { AppSession.setUserName(it) }
+                    response.data?.gender?.let { AppSession.setGender(it) }
+                    response.data?.aadhar_no?.let { AppSession.setAadhaarNo(it.toString()) }
+                    response.data?.address?.let { AppSession.setAddress(it) }
+                    response.data?.dob?.let { AppSession.setDob(it) }
+                    response.data?.zip?.let { AppSession.setZip(it.toString()) }
+                    response.data?.state_id?.let { AppSession.setStateID(it.toString()) }
+                    response.data?.state_name?.let { AppSession.setState(it) }
+                    response.data?.city?.let { AppSession.setCity(it) }
                     Toast.makeText(this, response.message.toString(), Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@Login, Home::class.java)
                         .putExtra("username",binding.etEmail.text.toString())
                         .putExtra("purpose","login"))
-
                     finish()
-                    /*  response.data?.email?.let { PrefManager.write(PrefManager.EMAIL, it) }
-                      response.data?.phone_number?.let { PrefManager.write(PrefManager.PHONE, it) }
-                      response.data?.image?.let { PrefManager.write(PrefManager.IMAGE, it) }
-                      response.data?.country_id?.let { PrefManager.write(PrefManager.COUNTRY_ID, it) }
-                      response.data?.country_name?.let {
-                          PrefManager.write(
-                              PrefManager.COUNTRY_NAME,
-                              it
-                          )
-                      }
-                      PrefManager.write(
-                          PrefManager.PASSWORD,
-                          binding.etPassword.text.toString().trim()
-                      )*/
-                     Log.d(TAG, "ressponse message --- : " + response.message.toString())
+                     Log.wtf(TAG, "ressponse message --- : " + response.message.toString())
                 }
                 is Resource.Loading -> {
                     ProgressDialog.showProgressBar(this)
@@ -124,6 +123,7 @@ class Login : BaseActivity() {
                         response.message,
                         Toast.LENGTH_SHORT
                     ).show()
+                    Log.wtf(TAG, "ressponse message --- : " + response.message.toString())
                 }
             }
         }

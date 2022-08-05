@@ -1,5 +1,6 @@
 package com.farmershop.data.viewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -34,13 +35,13 @@ class SignupViewModel : ViewModel(){
     private fun handleResponse(response: Response<RegisterResponse>?): Resource<DataRegister> {
         if (response?.isSuccessful!!) {
             response.body()?.let { res ->
-                return if (res.status) {
-                    res.data.let { Resource.Success(res.message, it) }
+                return if (res.status!!) {
+                    res.data!!.let { Resource.Success(res.message!!, it) }
                 } else {
-                    Resource.Error(res.message)
+                    Resource.Error(res.message!!)
                 }
             }
         }
-        return Resource.Error(MyApp.application.resources.getString(R.string.something_went_wrong))
+        return Resource.Error(response.message())
     }
 }

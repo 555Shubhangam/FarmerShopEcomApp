@@ -6,6 +6,6 @@ import com.farmershop.data.model.request.ResetPasswordRequest
 import com.farmershop.data.network.RetrofitBuilder
 
 class OTPRepository {
-    suspend fun otp(username: String,otp:String) =
-        RetrofitBuilder.apiService?.otp(username,otp)
+    suspend fun otp(username: String,otp:String,otpFor:String) =
+        RetrofitBuilder.apiService?.otp(username,otp,otpFor)
 }

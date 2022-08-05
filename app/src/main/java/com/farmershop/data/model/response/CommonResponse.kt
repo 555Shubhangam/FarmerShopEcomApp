@@ -5,7 +5,6 @@ package com.farmershop.data.model.response
  */
 data class CommonResponse(
     var status: Boolean,
-    var message: String,
-    var code: Int,
-)
+    var message: String
+    )
 

@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.farmershop.R
-import com.farmershop.data.model.request.ForgetPasswordRequest
 import com.farmershop.data.model.response.*
 import com.farmershop.data.repository.LoginRepository
 import com.farmershop.ui.base.MyApp

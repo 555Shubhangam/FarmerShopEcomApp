@@ -61,6 +61,23 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputlayoutUserName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:hint="@string/username"
+                    android:visibility="visible"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputlayoutName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtUserName"
+                        style="@style/txtMonReg" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/inputlayoutEmail"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
@@ -69,7 +86,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:hint="@string/email"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputlayoutName">
+                    app:layout_constraintTop_toBottomOf="@+id/inputlayoutUserName">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtEmail"
@@ -85,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:hint="@string/phone_number"
+                    android:hint="@string/mobile_number"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/inputlayoutEmail">
 
@@ -104,9 +121,9 @@
                     android:paddingHorizontal="@dimen/_5sdp"
                     android:paddingVertical="@dimen/_10sdp"
                     android:text="@string/select_gender"
-                    android:textColor="@color/colorGray"
+                    android:textColor="@color/black"
                     app:drawableRightCompat="@drawable/ic_baseline_keyboard_arrow_down_24"
-                    app:drawableTint="@color/colorGray"
+                    app:drawableTint="@color/black"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/inputlayoutPhoneNumber" />
 
@@ -119,11 +136,75 @@
                     android:paddingHorizontal="@dimen/_5sdp"
                     android:paddingVertical="@dimen/_10sdp"
                     android:text="@string/select_dob"
-                    android:textColor="@color/colorGray"
+                    android:textColor="@color/black"
                     app:drawableRightCompat="@drawable/ic_calendar"
-                    app:drawableTint="@color/colorGray"
+                    app:drawableTint="@color/black"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvSelectGender" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputlayoutAddress"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:hint="@string/address"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDob">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtAddress"
+                        style="@style/txtMonReg" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvSelectState"
+                    style="@style/txtMonReg"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/outline_curve_bg"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:text="@string/select_state"
+                    android:textColor="@color/black"
+                    app:drawableRightCompat="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    app:drawableTint="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputlayoutAddress" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputlayoutCity"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:hint="@string/city"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSelectState">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCity"
+                        style="@style/txtMonReg" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputlayoutZip"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:hint="@string/pin_code"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputlayoutCity">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtZip"
+                        android:inputType="number"
+                        style="@style/txtMonReg" />
+                </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

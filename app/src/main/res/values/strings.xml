@@ -128,8 +128,14 @@
     <string name="password_required">Password is required</string>
     <string name="old_password_required">Old Password is required</string>
     <string name="address_required">Address is required</string>
+    <string name="city_required">City is required</string>
+    <string name="pincode_required">Pincode is required</string>
+    <string name="gender_required">Gender is required</string>
+    <string name="state_required">State is required</string>
+    <string name="dob_required">DOB is required</string>
     <string name="valid_mobile_number_required">Valid Mobile Number is required</string>
     <string name="valid_email_required">Valid Email Id is required</string>
+    <string name="valid_email_mobile_required">Valid Email/Mobile is required</string>
     <string name="username_required">Username is required</string>
     <string name="otp_required">OTP is required</string>
     <string name="name_required">Name is required</string>
@@ -138,5 +144,13 @@
     <string name="email_and_mobile_required">Email/Mobile is required</string>
     <string name="enter_username">Enter Username</string>
     <string name="submit">Submit</string>
+    <string name="search">Search</string>
+    <string name="select_state">Select State</string>
+    <string name="city">City</string>
+    <string name="profile_successfully_update">Profile Successfully Update</string>
+    <string name="change_mobile_email">Change Email/Mobile</string>
+    <string name="email_mobile_username">Email/Mobile/Username</string>
+    <string name="enter_email_mobile_username">Enter Email/Mobile/Username</string>
+    <string name="enter_email_mobile">Enter Email/Mobile</string>
 
 </resources>

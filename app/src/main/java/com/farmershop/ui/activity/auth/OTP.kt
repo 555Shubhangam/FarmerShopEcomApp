@@ -21,6 +21,7 @@ class OTP : BaseActivity() {
     lateinit var binding: OtpBinding
     private lateinit var viewModal: OTPViewModal
     var username = ""
+    var otpVerifyFor = ""
    // var purpose="login"
     var purpose=""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +45,7 @@ class OTP : BaseActivity() {
         }*/
         username = intent.getStringExtra(Constants.USER_NAME)
         purpose = intent.getStringExtra(Constants.AUTH_TYPE)
+        otpVerifyFor = intent.getStringExtra(Constants.OTP_VERIFY_FOR)
 
         lblUsername.text =username
         binding.btnVerify.setOnClickListener {
@@ -73,13 +75,14 @@ class OTP : BaseActivity() {
             StaticMethods.alert(this, getString(R.string.otp_required))
         }  else{
             Utility.hideKeyboard(this)
-            OTPVerify()
+            otpVerify()
         }
     }
-    private fun OTPVerify() {
+    private fun otpVerify() {
       val  otp = binding.edtotp.text.toString()
        // val request = OTPRequest(username,otp)
-        viewModal.otpVerification(username,otp)
+        Log.wtf("resspontyt ",otpVerifyFor)
+        viewModal.otpVerification(username,otp,otpVerifyFor)
     }
 
     private fun setObserver() {
@@ -92,14 +95,19 @@ class OTP : BaseActivity() {
                     ProgressDialog.hideProgressBar()
 
                     Toast.makeText(this, response.message.toString(), Toast.LENGTH_LONG).show()
-                    if (purpose=="ForgotPassword"){
-                        startActivity(Intent(this, ResetPasswordActivity::class.java)
-                            .putExtra(Constants.USER_NAME,username))
-                        finish()
-                    }
-                    else{
-                        startActivity(Intent(this, Home::class.java))
-                        finish()
+                    when (purpose) {
+                        "ForgotPassword" -> {
+                            startActivity(Intent(this, ResetPasswordActivity::class.java)
+                                .putExtra(Constants.USER_NAME,username))
+                            finish()
+                        }
+                        "ChangeEmailMobile" -> {
+                            finish()
+                        }
+                        else -> {
+                            startActivity(Intent(this, Home::class.java))
+                            finish()
+                        }
                     }
 
 

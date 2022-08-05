@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/img_cancel"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/ic_cancel"
+                android:backgroundTint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cls_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_white_solid_round_grey_stroke"
+                android:backgroundTint="@color/edit_text_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_cancel">
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/edit_text_gray"
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center|start"
+                    android:hint="@string/search"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cls_search">
+
+                <RelativeLayout
+                    android:id="@+id/rl_item"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_items"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"
+                        android:padding="@dimen/_5sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:listitem="@layout/item_drop_list" />
+                </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- <View
+                 app:layout_constraintTop_toBottomOf="@+id/card_view"
+                 app:layout_constraintStart_toEndOf="parent"
+                 android:layout_width="match_parent"
+                 android:layout_height="5dp"/>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

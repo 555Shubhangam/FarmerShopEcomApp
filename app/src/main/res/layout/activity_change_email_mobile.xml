@@ -27,7 +27,7 @@
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="@string/email_mobile_username"
+                android:text="@string/email_and_mobile"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
@@ -35,14 +35,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etusername"
+                android:id="@+id/etEmailMobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@drawable/bg_white_solid_round_grey_stroke"
                 android:fontFamily="@font/montserrat_semibold"
-                android:hint="@string/enter_email_mobile_username"
+                android:hint="@string/enter_email_mobile"
                 android:inputType="textPostalAddress"
                 android:padding="@dimen/_10sdp"
                 android:singleLine="true"
@@ -70,7 +70,7 @@
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etusername" />
+                app:layout_constraintTop_toBottomOf="@+id/etEmailMobile" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -78,5 +78,3 @@
 
     </androidx.core.widget.NestedScrollView>
 </layout>
-
-

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,7 +31,7 @@
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:background="@drawable/user"
-            android:id="@+id/UserProfile"
+            android:id="@+id/userProfile"
 
           />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -54,7 +57,7 @@
                 android:layout_width="match_parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvName"
                 android:padding="2dp"
-                android:id="@+id/tvEMAILID"
+                android:id="@+id/tvEmailId"
                 style="@style/txtMonBold"
                 android:textColor="@color/colorGray"
                 android:text="priyaupadhyay@gmail.com"
@@ -63,7 +66,7 @@
             <TextView
                 android:textColor="@color/colorGray"
                 android:layout_width="match_parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvEMAILID"
+                app:layout_constraintTop_toBottomOf="@+id/tvEmailId"
                 android:padding="2dp"
                 android:id="@+id/tvPhoneNo"
                 style="@style/txtMonBold"
@@ -143,7 +146,7 @@
         style="@style/txtMonBold"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:drawablePadding="@dimen/_10sdp"
-        android:drawableLeft="@drawable/ic_fav"
+        android:drawableLeft="@drawable/ic_open_lock"
         android:drawableTint="@color/colorAppMain"
         android:layout_width="match_parent"
         android:text="@string/reset_password"
@@ -156,12 +159,33 @@
         android:layout_width="match_parent"
         android:background="@color/colorGray2"
         android:layout_height="2dp"/>
-
+    <TextView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:padding="2dp"
+        android:id="@+id/tvChangeMobileEmail"
+        app:layout_constraintTop_toBottomOf="@+id/view1"
+        android:gravity="start"
+        style="@style/txtMonBold"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableLeft="@drawable/ic_edit"
+        android:drawableTint="@color/colorAppMain"
+        android:layout_width="match_parent"
+        android:text="@string/change_mobile_email"
+        android:textSize="15sp"
+        />
+    <View
+        android:id="@+id/view12"
+        app:layout_constraintTop_toBottomOf="@+id/tvChangeMobileEmail"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:background="@color/colorGray2"
+        android:layout_height="2dp"/>
     <TextView
         android:layout_marginTop="@dimen/_20sdp"
         android:padding="2dp"
         android:id="@+id/tvDeliveryAddress"
-        app:layout_constraintTop_toBottomOf="@+id/view1"
+        app:layout_constraintTop_toBottomOf="@+id/view12"
         android:gravity="start"
         style="@style/txtMonBold"
         android:layout_marginHorizontal="@dimen/_10sdp"
@@ -205,3 +229,4 @@
         android:layout_height="2dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

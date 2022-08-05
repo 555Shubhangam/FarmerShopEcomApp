@@ -23,6 +23,7 @@ import com.farmershop.ui.fragment.HomeFragment
 import com.farmershop.ui.fragment.MyAccountFragment
 import com.farmershop.ui.fragment.ProductFragment
 import com.farmershop.data.viewModel.ProductViewModel
+import com.farmershop.ui.activity.auth.Login
 import com.farmershop.utils.*
 import com.farmershop.ui.base.BaseActivityUser
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -107,11 +108,11 @@ class Home : BaseActivityUser(), NavigationView.OnNavigationItemSelectedListener
         header_location = headerView.findViewById<TextView>(R.id.header_location)
         var header_location_icon = headerView.findViewById<ImageView>(R.id.header_location_icon)
 
-        if (Validation.isEmpty(AppSession.getInstance(applicationContext).getName().toString())) {
+        if (Validation.isEmpty(AppSession.getName().toString())) {
             header_name.text = StaticMethods.getString("Hello, Guest")
         } else {
             header_name.text = StaticMethods.getString(
-                "Hello, " + AppSession.getInstance(applicationContext).getName().toString()
+                "Hello, " + AppSession.getName().toString()
             )
         }
 
@@ -158,8 +159,12 @@ class Home : BaseActivityUser(), NavigationView.OnNavigationItemSelectedListener
                 true
             }
             R.id.nav_logout -> {
-                AppSession.getInstance(applicationContext).logout()
+                AppSession.logout()
                 drawerLayout.closeDrawers()
+                val intent=Intent(this, Login::class.java)
+                //intent.putExtra("GoogleLogout","Yes")
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(intent)
                 true
             }
             R.id.nav_myorders -> {
@@ -249,8 +254,8 @@ class Home : BaseActivityUser(), NavigationView.OnNavigationItemSelectedListener
     }
 
     private fun getLastLocation() {
-           if (!Validation.isEmpty(AppSession.getInstance(this).getCurrAddress().toString())) {
-               val location = AppSession.getInstance(this).getCurrAddress().toString()
+           if (!Validation.isEmpty(AppSession.getCurrAddress().toString())) {
+               val location = AppSession.getCurrAddress().toString()
                if (Validation.isEmpty(location)) {
                    tvLocation.text = "Your Location"
                    header_location.text = "Your Location"
@@ -282,15 +287,15 @@ class Home : BaseActivityUser(), NavigationView.OnNavigationItemSelectedListener
                    if (task.isSuccessful && task.result != null) {
                        lastLocation = task.result
 
-                       AppSession.getInstance(this).setCurrLat(lastLocation?.latitude.toString())
-                       AppSession.getInstance(this).setCurrLong(lastLocation?.longitude.toString())
-                       AppSession.getInstance(this).setCurrAddress(
+                       AppSession.setCurrLat(lastLocation?.latitude.toString())
+                       AppSession.setCurrLong(lastLocation?.longitude.toString())
+                       AppSession.setCurrAddress(
                            Utility.convertLatLngToAddress(
                                this,
                                LatLng(lastLocation?.latitude!!, lastLocation?.longitude!!)
                            )
                        )
-                       val location = AppSession.getInstance(this).getCurrAddress().toString()
+                       val location = AppSession.getCurrAddress().toString()
                        if (Validation.isEmpty(location)) {
                            tvLocation.text = "Your Location"
                            header_location.text = "Your Location"

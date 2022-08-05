@@ -1,6 +1,5 @@
 package com.farmershop.data.repository
 
-import com.farmershop.data.model.request.ForgetPasswordRequest
 import com.farmershop.data.network.RetrofitBuilder
 
 class LoginRepository {

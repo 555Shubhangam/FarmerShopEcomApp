@@ -52,8 +52,8 @@ class MapActivity : AppCompatActivity() {
 
         locationType = intent.getStringExtra(GlobalConstants.LOCATION_TYPE_INTENT)!!
         if (locationType == "CurrentLoc") {
-            currentLat = AppSession.getInstance(this).getCurrLat().toString()
-            currentLongi = AppSession.getInstance(this).getCurrLong().toString()
+            currentLat = AppSession.getCurrLat().toString()
+            currentLongi = AppSession.getCurrLong().toString()
             currentLatLong = LatLng(currentLat.toDouble(), currentLongi.toDouble())
             Log.d("ssassasasaaCurrLatLng", currentLatLong.toString())
         } else {
@@ -80,7 +80,7 @@ class MapActivity : AppCompatActivity() {
         }
         googleMapPinPoint()
         binding.submitBt.setOnClickListener {
-          AppSession.getInstance(this).setCurrAddress(binding.address.text.toString())
+          AppSession.setCurrAddress(binding.address.text.toString())
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
             finish()

@@ -1,10 +1,10 @@
 package com.farmershop.data.model.response
 
 data class RegisterResponse(
-    val `data`: DataRegister,
-    val message: String,
-    val status: Boolean,
-    val status_text: String
+    val `data`: DataRegister?,
+    val message: String?,
+    val errors: ArrayList<String>?,
+    val status: Boolean?
 )
 
 data class DataRegister(

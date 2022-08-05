@@ -19,7 +19,7 @@ class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         application = this
-        AppSession.getInstance(applicationContext)
+        AppSession.init(applicationContext)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
        // AppDatabase.invoke(applicationContext)
     }

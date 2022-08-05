@@ -123,7 +123,7 @@ class SplashActivity : AppCompatActivity() {
                         //}
 
                         Handler().postDelayed({
-                            if (AppSession.getInstance(applicationContext).isLoggedIn()) {
+                            if (AppSession.isLoggedIn()) {
                                 startActivity(Intent(this, Home::class.java))
                             } else {
                                 startActivity(Intent(this, Login::class.java))

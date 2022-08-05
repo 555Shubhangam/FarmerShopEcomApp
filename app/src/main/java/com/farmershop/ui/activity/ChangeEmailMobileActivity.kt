@@ -1,49 +1,38 @@
-package com.farmershop.ui.activity.auth
+package com.farmershop.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
-import android.util.Log
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.farmershop.R
-import com.farmershop.data.model.request.ForgotPasswordRequest
-import com.farmershop.data.model.request.ResetPasswordRequest
+import com.farmershop.data.model.request.ChangeEmailMobileRequest
+import com.farmershop.data.viewModel.ChangeEmailMobileViewModal
 import com.farmershop.data.viewModel.ForgotPasswordViewModal
-import com.farmershop.data.viewModel.ResetPasswordViewModal
+import com.farmershop.databinding.ActivityChangeEmailMobileBinding
 import com.farmershop.databinding.ActivityForgotPasswordBinding
-import com.farmershop.databinding.ActivityResetPasswordBinding
-import com.farmershop.ui.activity.Home
+import com.farmershop.ui.activity.auth.OTP
 import com.farmershop.utils.*
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
-class ForgotPasswordActivity : AppCompatActivity() {
-    lateinit var binding: ActivityForgotPasswordBinding
-    private lateinit var viewModal: ForgotPasswordViewModal
-    var username =""
-
+class ChangeEmailMobileActivity : AppCompatActivity() {
+    lateinit var binding: ActivityChangeEmailMobileBinding
+    private lateinit var viewModal: ChangeEmailMobileViewModal
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_forgot_password)
-        viewModal = ViewModelProvider(this@ForgotPasswordActivity).get(ForgotPasswordViewModal::class.java)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_change_email_mobile)
+        viewModal = ViewModelProvider(this@ChangeEmailMobileActivity).get(ChangeEmailMobileViewModal::class.java)
 
         init()
         setObserver()
     }
-
     private fun init() {
-        username =intent.getStringExtra(Constants.Email_MOBILE)
-        etusername.setText(username)
-
         toolbar_back.setOnClickListener {
             finish()
         }
-        toolbar_title.text = getString(R.string.forgot_password)
+        toolbar_title.text = getString(R.string.change_mobile_email)
 
 
         binding.tvForgotPassword.setOnClickListener {
@@ -52,21 +41,27 @@ class ForgotPasswordActivity : AppCompatActivity() {
         }
     }
     private fun validation() {
-        if(Validation.isEmpty(binding.etusername.text.toString())){
-            StaticMethods.alert(this, getString(R.string.username_required))
-        }  else{
+        if(Validation.isEmpty(binding.etEmailMobile.text.toString())){
+            StaticMethods.alert(this, getString(R.string.email_and_mobile_required))
+        }else if(!Validation.isValidEmailOrMobile(binding.etEmailMobile.text.toString())){
+            StaticMethods.alert(this, getString(R.string.valid_email_mobile_required))
+        }   else{
             Utility.hideKeyboard(this)
-            forgotPassword()
+            changeEmailMobileApi()
         }
     }
-    private fun forgotPassword() {
-        username = binding.etusername.text.toString()
-       // val request = ForgotPasswordRequest(username)
-        viewModal.forgotPassword(username)
+    private fun changeEmailMobileApi() {
+        if(Validation.isValidEmail(binding.etEmailMobile.text.toString())){
+            val request = ChangeEmailMobileRequest(binding.etEmailMobile.text.toString(),"")
+            viewModal.changeEmailMobile(AppSession.getUserName().toString(),request)
+        }else{
+            val request = ChangeEmailMobileRequest("",binding.etEmailMobile.text.toString())
+            viewModal.changeEmailMobile(AppSession.getUserName().toString(),request)
+        }
     }
 
     private fun setObserver() {
-        viewModal.forgotPasswordResponse.observe(this) { response ->
+        viewModal.changeEmailMobileResponse.observe(this) { response ->
 
             when (response) {
 
@@ -74,14 +69,15 @@ class ForgotPasswordActivity : AppCompatActivity() {
                     ProgressDialog.hideProgressBar()
 
                     Toast.makeText(this, response.message.toString(), Toast.LENGTH_LONG).show()
-                    var otpFor = if(Validation.isValidEmail(etusername.text.toString())){
+                    var otpFor = if(Validation.isValidEmail(binding.etEmailMobile.text.toString())){
                         "email"
                     }else{
                         "mobile"
                     }
-                    startActivity(Intent(this, OTP::class.java)
+                    startActivity(
+                        Intent(this, OTP::class.java)
                         .putExtra(Constants.USER_NAME,etusername.text.toString())
-                        .putExtra(Constants.AUTH_TYPE,"ForgotPassword")
+                        .putExtra(Constants.AUTH_TYPE,"ChangeEmailMobile")
                         .putExtra(Constants.OTP_VERIFY_FOR,otpFor))
                 }
                 is Resource.Loading -> {
@@ -98,5 +94,4 @@ class ForgotPasswordActivity : AppCompatActivity() {
             }
         }
     }
-
 }

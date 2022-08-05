@@ -5,13 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.farmershop.R
+import com.farmershop.ui.activity.ChangeEmailMobileActivity
 import com.farmershop.ui.base.BaseFragment
 import com.farmershop.ui.activity.MyAddressActivity
 import com.farmershop.ui.activity.MyOrderActivity
 import com.farmershop.ui.activity.Profile
 import com.farmershop.ui.activity.setting.ChangePasswordActivity
-import kotlinx.android.synthetic.main.fragment_my_address.*
+import com.farmershop.utils.AppSession
+import kotlinx.android.synthetic.main.fragment_my_account.*
 
 class MyAccountFragment : BaseFragment() {
 
@@ -31,6 +35,17 @@ class MyAccountFragment : BaseFragment() {
     }
 
     private fun initView() {
+        tvName.text = AppSession.getName()
+        tvEmailId.text = AppSession.getEmail()
+        tvPhoneNo.text = AppSession.getMobile()
+        Glide.with(this)
+            .applyDefaultRequestOptions(
+                RequestOptions()
+                    .placeholder(R.drawable.user)
+                    .error(R.drawable.user)
+            )
+            .load(AppSession.getPhoto())
+            .into(userProfile)
         tvDeliveryAddress.setOnClickListener {
             var intent =Intent(requireContext(), MyAddressActivity::class.java)
             startActivity(intent)
@@ -53,14 +68,17 @@ class MyAccountFragment : BaseFragment() {
             var intent =Intent(requireContext(), Profile::class.java)
             startActivity(intent)
         }
-
+        tvChangeMobileEmail.setOnClickListener {
+            var intent =Intent(requireContext(), ChangeEmailMobileActivity::class.java)
+            startActivity(intent)
+        }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_address, container, false)
+        return inflater.inflate(R.layout.fragment_my_account, container, false)
     }
 
 }

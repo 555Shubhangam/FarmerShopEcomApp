@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -80,28 +81,13 @@ class Register : BaseActivityUser() {
             when (response) {
                 is Resource.Success -> {
                     ProgressDialog.hideProgressBar()
-                    response.data?.token?.let { AppSession.getInstance(this).setToken(it) }
+                    //response.data?.token?.let { AppSession.getInstance(this).setToken(it) }
                     //response.data?.id?.let { AppSession.getInstance(this).setUserId(it.toString()) }
                     //Log.d("LoginActivity", "LoginActivity setObserver: " + response.data)
                     //response.data?.name?.let { AppSession.getInstance(this).setName(it) }
                     Toast.makeText(this, response.message.toString(), Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@Register, Login::class.java))
                     finish()
-                    /*  response.data?.email?.let { PrefManager.write(PrefManager.EMAIL, it) }
-                      response.data?.phone_number?.let { PrefManager.write(PrefManager.PHONE, it) }
-                      response.data?.image?.let { PrefManager.write(PrefManager.IMAGE, it) }
-                      response.data?.country_id?.let { PrefManager.write(PrefManager.COUNTRY_ID, it) }
-                      response.data?.country_name?.let {
-                          PrefManager.write(
-                              PrefManager.COUNTRY_NAME,
-                              it
-                          )
-                      }
-                      PrefManager.write(
-                          PrefManager.PASSWORD,
-                          binding.etPassword.text.toString().trim()
-                      )*/
-                    // Log.d(TAG, "setObserver: " + PrefManager.read(PrefManager.FCM_USER_ID, ""))
                 }
                 is Resource.Loading -> {
                     ProgressDialog.showProgressBar(this)
