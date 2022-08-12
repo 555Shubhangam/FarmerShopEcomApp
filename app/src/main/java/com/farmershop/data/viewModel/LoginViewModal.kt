@@ -17,7 +17,7 @@ class LoginViewModal : ViewModel(){
 
     private val repository = LoginRepository()
 
-    val user = MutableLiveData<Resource<Data>>()
+    val user = MutableLiveData<Resource<LoginResponse>>()
 
     fun login(username: String,password:String) = viewModelScope.launch {
         if (Utility.hasInternetConnection(MyApp.application)) {
@@ -29,13 +29,14 @@ class LoginViewModal : ViewModel(){
         }
     }
 
-    private fun handleLoginResponse(response: Response<LoginResponse>?): Resource<Data> {
+    private fun handleLoginResponse(response: Response<LoginResponse>?): Resource<LoginResponse> {
         if (response?.isSuccessful!!) {
             response.body()?.let { res ->
                 return if (res.status) {
-                    res.data.let { Resource.Success(res.message, it) }
+                    res.let { Resource.Success(res.message, it) }
+
                 } else {
-                    Resource.Error(res.message)
+                    Resource.Error(res.message,res)
                 }
             }
         }

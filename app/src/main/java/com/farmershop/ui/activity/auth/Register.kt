@@ -4,20 +4,24 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.util.Log
+import android.view.View
 import android.widget.Toast
+import android.widget.ViewFlipper
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.farmershop.R
+import com.farmershop.data.adapter.RecyclerCallback
+import com.farmershop.data.adapter.RecyclerViewGenricAdapter
 import com.farmershop.data.model.request.RegisterRequest
 import com.farmershop.data.viewModel.SignupViewModel
+import com.farmershop.databinding.ItemErrorBinding
 import com.farmershop.databinding.RegisterBinding
-import com.farmershop.ui.activity.Home
 import com.farmershop.utils.*
 import com.farmershop.ui.base.BaseActivityUser
+import kotlinx.android.synthetic.main.activity_my_order.*
 import kotlinx.android.synthetic.main.include_progress_bar.*
 import kotlinx.android.synthetic.main.register.*
 
@@ -27,6 +31,9 @@ class Register : BaseActivityUser() {
     private var isEyeOpenCnfPassword: Boolean = false
     private var isEyeOpenNewPassword: Boolean = false
     private lateinit var viewModal: SignupViewModel
+    var errorList = ArrayList<String>()
+    private var rvAdapError: RecyclerViewGenricAdapter<String, ItemErrorBinding>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.register)
@@ -39,6 +46,7 @@ class Register : BaseActivityUser() {
         binding.tvSignup.setOnClickListener {
             Utility.hideKeyboard(this)
             validation()
+            rvError.visibility=View.GONE
         }
         binding.imgEyeCnfPassword.setOnClickListener {
             if (isEyeOpenCnfPassword) {
@@ -74,6 +82,9 @@ class Register : BaseActivityUser() {
                     ContextCompat.getDrawable(this@Register, R.mipmap.icn_eye_inactive)
             }
         }
+
+
+
     }
 
     private fun setObserver() {
@@ -81,6 +92,7 @@ class Register : BaseActivityUser() {
             when (response) {
                 is Resource.Success -> {
                     ProgressDialog.hideProgressBar()
+                    rvError.visibility=View.GONE
                     //response.data?.token?.let { AppSession.getInstance(this).setToken(it) }
                     //response.data?.id?.let { AppSession.getInstance(this).setUserId(it.toString()) }
                     //Log.d("LoginActivity", "LoginActivity setObserver: " + response.data)
@@ -93,6 +105,13 @@ class Register : BaseActivityUser() {
                     ProgressDialog.showProgressBar(this)
                 }
                 is Resource.Error -> {
+                    if(response.data?.errorsList!=null){
+                    errorList = response.data?.errorsList!!
+
+                    rvError.visibility=View.VISIBLE
+                    rvError.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+                    setErrorListAdapter(rvError)
+                    }
                     ProgressDialog.hideProgressBar()
                     Toast.makeText(
                         applicationContext,
@@ -141,5 +160,27 @@ class Register : BaseActivityUser() {
             Utility.hideKeyboard(this)
             register()
         }
+    }
+
+
+    fun setErrorListAdapter(recyclerView: RecyclerView) {
+        rvAdapError  = RecyclerViewGenricAdapter<String, ItemErrorBinding>(
+            errorList,
+            R.layout.item_error, object :
+                RecyclerCallback<ItemErrorBinding, String> {
+                override fun bindData(
+                    binder: ItemErrorBinding,
+                    model: String,
+                    position: Int,
+                    itemView: View
+                ) {
+
+                    binder.apply {
+                        tvError.text = model
+                    }
+                }
+            })
+        recyclerView.adapter = rvAdapError
+
     }
 }

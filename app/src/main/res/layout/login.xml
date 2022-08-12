@@ -140,7 +140,16 @@
                 app:layout_constraintStart_toEndOf="@+id/et_password"
                 app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:id="@+id/rvError"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cls_password">
 
+            </androidx.recyclerview.widget.RecyclerView>
             <TextView
                 android:id="@+id/tv_login"
                 android:layout_width="match_parent"
@@ -159,7 +168,7 @@
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cls_password" />
+                app:layout_constraintTop_toBottomOf="@+id/rvError" />
 
             <TextView
                 android:id="@+id/tv_forgot_password"

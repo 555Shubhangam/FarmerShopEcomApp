@@ -152,5 +152,6 @@
     <string name="email_mobile_username">Email/Mobile/Username</string>
     <string name="enter_email_mobile_username">Enter Email/Mobile/Username</string>
     <string name="enter_email_mobile">Enter Email/Mobile</string>
+    <string name="welcome">Welcome</string>
 
 </resources>

@@ -10,22 +10,33 @@ import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.farmershop.data.adapter.RecyclerCallback
+import com.farmershop.data.adapter.RecyclerViewGenricAdapter
 import com.farmershop.data.model.request.LoginRequest
 import com.farmershop.data.viewModel.LoginViewModal
+import com.farmershop.databinding.ItemErrorBinding
 import com.farmershop.ui.activity.Home
 import com.farmershop.ui.base.MyApp
 import com.farmershop.utils.*
 import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.login.et_email
+import kotlinx.android.synthetic.main.login.rvError
+import kotlinx.android.synthetic.main.register.*
 
 
 class Login : BaseActivity() {
     private lateinit var binding: LoginBinding
     private lateinit var viewModal: LoginViewModal
     private var isEyeOpenNewPassword: Boolean = false
+    var errorList = ArrayList<String>()
+    private var rvAdapError: RecyclerViewGenricAdapter<String, ItemErrorBinding>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.login)
@@ -57,6 +68,7 @@ class Login : BaseActivity() {
                 StaticMethods.alert(this, getString(R.string.password_required))
                 //Utility.showSnackBar(binding.root, getString(R.string.password_required))
             } else {
+                rvError.visibility=View.GONE
                 Utility.hideKeyboard(this)
                 login()
             }
@@ -89,23 +101,24 @@ class Login : BaseActivity() {
             when (response) {
                 is Resource.Success -> {
                     ProgressDialog.hideProgressBar()
-                    response.data?.token?.let { AppSession.setToken(it) }
+                    rvError.visibility=View.GONE
+                    response.data?.data?.token?.let { AppSession.setToken(it) }
                     val token = AppSession.getToken()
                     Log.wtf("dddsdsdsdsdd", "token --- $token")
-                    response.data?.id?.let { AppSession.setUserId(it.toString()) }
-                    response.data?.name?.let { AppSession.setName(it) }
-                    response.data?.email?.let { AppSession.setEmail(it) }
-                    response.data?.mobile?.let { AppSession.setMobile(it) }
-                    response.data?.photo?.let { AppSession.setPhoto(it) }
-                    response.data?.username?.let { AppSession.setUserName(it) }
-                    response.data?.gender?.let { AppSession.setGender(it) }
-                    response.data?.aadhar_no?.let { AppSession.setAadhaarNo(it.toString()) }
-                    response.data?.address?.let { AppSession.setAddress(it) }
-                    response.data?.dob?.let { AppSession.setDob(it) }
-                    response.data?.zip?.let { AppSession.setZip(it.toString()) }
-                    response.data?.state_id?.let { AppSession.setStateID(it.toString()) }
-                    response.data?.state_name?.let { AppSession.setState(it) }
-                    response.data?.city?.let { AppSession.setCity(it) }
+                    response.data?.data?.id?.let { AppSession.setUserId(it.toString()) }
+                    response.data?.data?.name?.let { AppSession.setName(it) }
+                    response.data?.data?.email?.let { AppSession.setEmail(it) }
+                    response.data?.data?.mobile?.let { AppSession.setMobile(it) }
+                    response.data?.data?.photo?.let { AppSession.setPhoto(it) }
+                    response.data?.data?.username?.let { AppSession.setUserName(it) }
+                    response.data?.data?.gender?.let { AppSession.setGender(it) }
+                    response.data?.data?.aadhar_no?.let { AppSession.setAadhaarNo(it.toString()) }
+                    response.data?.data?.address?.let { AppSession.setAddress(it) }
+                    response.data?.data?.dob?.let { AppSession.setDob(it) }
+                    response.data?.data?.zip?.let { AppSession.setZip(it.toString()) }
+                    response.data?.data?.state_id?.let { AppSession.setStateID(it.toString()) }
+                    response.data?.data?.state_name?.let { AppSession.setState(it) }
+                    response.data?.data?.city?.let { AppSession.setCity(it) }
                     Toast.makeText(this, response.message.toString(), Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@Login, Home::class.java)
                         .putExtra("username",binding.etEmail.text.toString())
@@ -117,6 +130,13 @@ class Login : BaseActivity() {
                     ProgressDialog.showProgressBar(this)
                 }
                 is Resource.Error -> {
+                    if(response.data?.errorsList!=null){
+                        errorList = response.data?.errorsList!!
+                        rvError.visibility=View.VISIBLE
+                        rvError.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+                        setErrorListAdapter(rvError)
+                    }
+
                     ProgressDialog.hideProgressBar()
                     Toast.makeText(
                         applicationContext,
@@ -131,5 +151,26 @@ class Login : BaseActivity() {
 
     override fun onBackPressed() {
       finish()
+    }
+
+    fun setErrorListAdapter(recyclerView: RecyclerView) {
+        rvAdapError  = RecyclerViewGenricAdapter<String, ItemErrorBinding>(
+            errorList,
+            R.layout.item_error, object :
+                RecyclerCallback<ItemErrorBinding, String> {
+                override fun bindData(
+                    binder: ItemErrorBinding,
+                    model: String,
+                    position: Int,
+                    itemView: View
+                ) {
+
+                    binder.apply {
+                        tvError.text = model
+                    }
+                }
+            })
+        recyclerView.adapter = rvAdapError
+
     }
 }

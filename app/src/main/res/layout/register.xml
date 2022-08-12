@@ -27,6 +27,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 />
 
+
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_mid"
                 android:layout_width="0dp"
@@ -326,6 +328,17 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:id="@+id/rvError"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/cls_cnf_password">
+
+                </androidx.recyclerview.widget.RecyclerView>
                <!-- <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cls_check"
                     android:layout_width="0dp"
@@ -386,7 +399,7 @@
                     android:textSize="@dimen/_12ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cls_cnf_password" />
+                    app:layout_constraintTop_toBottomOf="@+id/rvError" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_marginTop="@dimen/_10sdp"

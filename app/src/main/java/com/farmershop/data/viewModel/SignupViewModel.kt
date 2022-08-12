@@ -20,7 +20,7 @@ class SignupViewModel : ViewModel(){
 
     private val repository = RegisterRepository()
 
-    val user = MutableLiveData<Resource<DataRegister>>()
+    val user = MutableLiveData<Resource<RegisterResponse>>()
 
     fun register(request: RegisterRequest) = viewModelScope.launch {
         if (Utility.hasInternetConnection(MyApp.application)) {
@@ -32,13 +32,13 @@ class SignupViewModel : ViewModel(){
         }
     }
 
-    private fun handleResponse(response: Response<RegisterResponse>?): Resource<DataRegister> {
+    private fun handleResponse(response: Response<RegisterResponse>?): Resource<RegisterResponse> {
         if (response?.isSuccessful!!) {
             response.body()?.let { res ->
                 return if (res.status!!) {
-                    res.data!!.let { Resource.Success(res.message!!, it) }
+                    res.let { Resource.Success(res.message!!, it) }
                 } else {
-                    Resource.Error(res.message!!)
+                    Resource.Error(res.message!!,res)
                 }
             }
         }
