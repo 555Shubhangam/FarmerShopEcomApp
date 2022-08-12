@@ -1,28 +1,45 @@
 package com.farmershop.ui.fragment
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import com.farmershop.R
-import com.farmershop.ui.base.BaseFragment
-import com.farmershop.databinding.*
-import com.farmershop.ui.activity.AddToCartActivity
-import com.farmershop.ui.activity.ProductDescriptionActivity
 import com.farmershop.data.adapter.RecyclerCallback
 import com.farmershop.data.adapter.RecyclerViewGenricAdapter
-import com.farmershop.data.viewModel.ProductViewModel
+import com.farmershop.data.adapter.SlidderBannerAdapter
+import com.farmershop.data.model.response.BannerData
+import com.farmershop.data.viewModel.HomeViewModal
+import com.farmershop.databinding.CategoryRowHomeBinding
+import com.farmershop.databinding.FragmentHome2Binding
+import com.farmershop.databinding.ProductOffersBinding
+import com.farmershop.ui.activity.AddToCartActivity
+import com.farmershop.ui.activity.ProductDescriptionActivity
+import com.farmershop.ui.base.BaseFragment
+import com.farmershop.utils.ProgressDialog
+import com.farmershop.utils.Resource
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.content_lay_mainact.*
+import java.util.*
+import kotlin.collections.ArrayList
+
 
 private const val TAG = "HomeFragment"
 class HomeFragment : BaseFragment(){
-    lateinit var mContext: Context
-    lateinit var viewModel: ProductViewModel
+    var bannerList:ArrayList<BannerData> = ArrayList()
+    lateinit var binding: FragmentHome2Binding
+    private lateinit var viewModal: HomeViewModal
+    private val page: ViewPager? = null
+    private val tabLayout: TabLayout? = null
     companion object {
         @JvmStatic
         fun newInstance(): HomeFragment {
@@ -39,17 +56,55 @@ class HomeFragment : BaseFragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home2, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home2, container, false)
+        viewModal = ViewModelProvider(this).get(HomeViewModal::class.java)
+        return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        setObserver()
+    }
+
+    private fun setObserver() {
+        viewModal.bannerResponse.observe(requireActivity()) { response ->
+            when (response) {
+                is Resource.Success -> {
+                    ProgressDialog.hideProgressBar()
+                    bannerList.clear()
+                    //bannerList = response.data?.data!!
+                    bannerList.add(BannerData(1,"https://www.verywellfit.com/thmb/8TA9oyVqBqq_Cz7QHOrP5vzJlFE=/1500x1000/filters:fill(FFDB5D,1)/sweet-potato_annotated-5bb037b24c1640d38994e20e355d8818.jpg","","Sweet Potato 20% Discount"))
+                    bannerList.add(BannerData(2,"https://femina.wwmindia.com/thumb/content/2019/dec/benefits-of-carrots1575626304.jpg?width=1200&height=900","","Carrot 20Rs OFF"))
+                    bannerList.add(BannerData(3,"https://www.thoughtco.com/thmb/q_mXCoQzbVeZln1zhipGlJ-5rRo=/2296x1291/smart/filters:no_upscale()/full-frame-shot-of-onions-in-market-stall-562386223-59b97e59845b340010f8d76e.jpg","","Onion 10% Discount"))
+                    bannerList.add(BannerData(4,"https://www.tastingtable.com/img/gallery/the-biggest-mistakes-you-need-to-avoid-when-cooking-tomatoes/l-intro-1657814969.jpg","","Tomato 10Rs OFF"))
+                    bannerList.add(BannerData(5,"https://media.istockphoto.com/photos/bell-pepper-fresh-green-red-and-yellow-picture-id479891136?k=20&m=479891136&s=612x612&w=0&h=wySmpjruBECKLfcaCInRws_8C15u7OWXA-HckpdmpXM=","","Capsicum 50% Discount"))
+                    Log.wtf("BannerrLisst", "ressponse list --- : " + response.data?.data.toString())
+                    val itemsPagerAdapter = SlidderBannerAdapter(requireContext(), bannerList)
+                    page!!.adapter = itemsPagerAdapter
+                    // The_slide_timer
+                    val timer = Timer()
+                    timer.scheduleAtFixedRate(The_slide_timer(page,bannerList), 2000, 3000)
+                    tabLayout!!.setupWithViewPager(page, true)
+                }
+                is Resource.Loading -> {
+                    ProgressDialog.showProgressBar(requireContext())
+                }
+                is Resource.Error -> {
+                    ProgressDialog.hideProgressBar()
+                    Toast.makeText(
+                        requireContext(),
+                        response.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
     }
 
     private fun initView() {
+        viewModal.getBanner()
         layoutCategory.setOnClickListener {
             addFragment(CategoryFragment.newInstance())
 
@@ -62,15 +117,6 @@ class HomeFragment : BaseFragment(){
             addFragment(ProductFragment.newInstance())
 
         }
-        /*TAG = "FrgHome"
-        mContext = activity?.applicationContext!!
-        viewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
-        viewModel?.baseInterface = this
-        recycler_view_category.layoutManager= GridLayoutManager(mContext,2)
-        recycler_view_popular.layoutManager=
-            LinearLayoutManager(mContext, RecyclerView.HORIZONTAL,false)
-        viewModel.categoryList()*/
-       // linearLayoutManagerProduct = GridLayoutManager(this, 2)
         recycler_category_mainAct.layoutManager = GridLayoutManager(requireContext(), 3)
         setAdapterProduct(recycler_category_mainAct)
 
@@ -180,5 +226,11 @@ class HomeFragment : BaseFragment(){
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }*/
-
+   class The_slide_timer(val page: ViewPager,val bannerList:ArrayList<BannerData>) : TimerTask() {
+       override fun run() {
+               if (page.currentItem < bannerList.size - 1) {
+                   page.currentItem = page.currentItem + 1
+               } else page.currentItem = 0
+       }
+   }
 }

@@ -43,9 +43,9 @@ class OTP : BaseActivity() {
         if(intent.hasExtra("purpose")){
             purpose = intent.getStringExtra("purpose")
         }*/
-        username = intent.getStringExtra(Constants.USER_NAME)
-        purpose = intent.getStringExtra(Constants.AUTH_TYPE)
-        otpVerifyFor = intent.getStringExtra(Constants.OTP_VERIFY_FOR)
+        username = intent.getStringExtra(Constants.USER_NAME)!!
+        purpose = intent.getStringExtra(Constants.AUTH_TYPE)!!
+        otpVerifyFor = intent.getStringExtra(Constants.OTP_VERIFY_FOR)!!
 
         lblUsername.text =username
         binding.btnVerify.setOnClickListener {

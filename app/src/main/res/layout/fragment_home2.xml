@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_height="match_parent"
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:background="@color/white"
     android:id="@+id/layoutHome"
@@ -49,37 +50,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="230dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/veg6"
-                    android:contentDescription="@string/image" />
                 <androidx.viewpager.widget.ViewPager
-                    android:visibility="gone"
-                    android:id="@+id/pager_mainAct"
+                    android:id="@+id/my_pager"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp" />
+                    android:layout_height="240dp"
+                    />
 
-                <!--<com.viewpagerindicator.CirclePageIndicator
-                    android:id="@+id/indicator_mainAct"
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_below="@+id/my_pager"
+                    app:tabGravity="center"
+                    android:id="@+id/my_tablayout"
+                    app:tabBackground="@drawable/indicator_selector"
+                    app:tabIndicatorHeight="0dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="bottom"
-                    android:paddingBottom="15dp"
-                    app:centered="true"
-                    app:fillColor="@color/colorPrimary"
-                    app:pageColor="@color/colorWhite"
-                    app:snap="false" />-->
+                    />
                 <ProgressBar
                     android:layout_marginVertical="5dp"
                     android:padding="3dp"
@@ -422,3 +407,4 @@
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

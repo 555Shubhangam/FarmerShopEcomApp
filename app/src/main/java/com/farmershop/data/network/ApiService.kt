@@ -23,7 +23,8 @@ interface ApiService {
     suspend fun changePassword(@Body request: ChangePasswordRequest): Response<ChangePasswordResponse>
 
     @GET("auth/forgot_password")
-    suspend fun forgotPassword(@Query("username") username: String): Response<ForgotPasswordResponse>
+    suspend fun forgotPassword(@Query("username") username: String,
+                               @Query("otp_for") otp_for: String): Response<ForgotPasswordResponse>
 
     @GET("auth/otp_verification")
     suspend fun otp(
@@ -63,4 +64,7 @@ interface ApiService {
         @Path("username") username: String,
         @Body request: ChangeEmailMobileRequest
     ): Response<CommonResponse>
+
+    @GET("data/banners")
+    suspend fun getBanner(): Response<BannerResponse>
 }

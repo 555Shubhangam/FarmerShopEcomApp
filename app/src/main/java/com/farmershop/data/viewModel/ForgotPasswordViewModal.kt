@@ -22,10 +22,10 @@ class ForgotPasswordViewModal : ViewModel(){
     private val repository = ForgotPasswordRepository()
     val forgotPasswordResponse = MutableLiveData<Resource<String>>()
 
-    fun forgotPassword(username: String) = viewModelScope.launch {
+    fun forgotPassword(username: String,otp_for:String) = viewModelScope.launch {
         if (Utility.hasInternetConnection(MyApp.application)) {
             forgotPasswordResponse.postValue(Resource.Loading())
-            val response = repository.forgotPassword(username)
+            val response = repository.forgotPassword(username,otp_for)
             forgotPasswordResponse.postValue(handleForgotPasswordResponse(response))
         } else {
             forgotPasswordResponse.postValue(Resource.Error(MyApp.application.resources.getString(R.string.no_internet)))

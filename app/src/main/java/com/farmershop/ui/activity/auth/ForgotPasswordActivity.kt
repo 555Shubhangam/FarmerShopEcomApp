@@ -25,19 +25,20 @@ import kotlinx.android.synthetic.main.include_toolbar.*
 class ForgotPasswordActivity : AppCompatActivity() {
     lateinit var binding: ActivityForgotPasswordBinding
     private lateinit var viewModal: ForgotPasswordViewModal
-    var username =""
+    var username = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_forgot_password)
-        viewModal = ViewModelProvider(this@ForgotPasswordActivity).get(ForgotPasswordViewModal::class.java)
+        viewModal =
+            ViewModelProvider(this@ForgotPasswordActivity).get(ForgotPasswordViewModal::class.java)
 
         init()
         setObserver()
     }
 
     private fun init() {
-        username =intent.getStringExtra(Constants.Email_MOBILE)
+        username = intent.getStringExtra(Constants.Email_MOBILE)!!
         etusername.setText(username)
 
         toolbar_back.setOnClickListener {
@@ -51,18 +52,31 @@ class ForgotPasswordActivity : AppCompatActivity() {
             validation()
         }
     }
+
     private fun validation() {
-        if(Validation.isEmpty(binding.etusername.text.toString())){
+        if (Validation.isEmpty(binding.etusername.text.toString())) {
             StaticMethods.alert(this, getString(R.string.username_required))
-        }  else{
+        } else {
             Utility.hideKeyboard(this)
             forgotPassword()
         }
     }
+
     private fun forgotPassword() {
         username = binding.etusername.text.toString()
-       // val request = ForgotPasswordRequest(username)
-        viewModal.forgotPassword(username)
+        // val request = ForgotPasswordRequest(username)
+        val otpFor = when {
+            Validation.isValidEmail(etusername.text.toString()) -> {
+                "email"
+            }
+            Validation.isValidMobile(etusername.text.toString()) -> {
+                "mobile"
+            }
+            else -> {
+                "both"
+            }
+        }
+        viewModal.forgotPassword(username, otpFor)
     }
 
     private fun setObserver() {
@@ -74,15 +88,23 @@ class ForgotPasswordActivity : AppCompatActivity() {
                     ProgressDialog.hideProgressBar()
 
                     Toast.makeText(this, response.message.toString(), Toast.LENGTH_LONG).show()
-                    var otpFor = if(Validation.isValidEmail(etusername.text.toString())){
-                        "email"
-                    }else{
-                        "mobile"
+                    val otpFor = when {
+                        Validation.isValidEmail(etusername.text.toString()) -> {
+                            "email"
+                        }
+                        Validation.isValidMobile(etusername.text.toString()) -> {
+                            "mobile"
+                        }
+                        else -> {
+                            "both"
+                        }
                     }
-                    startActivity(Intent(this, OTP::class.java)
-                        .putExtra(Constants.USER_NAME,etusername.text.toString())
-                        .putExtra(Constants.AUTH_TYPE,"ForgotPassword")
-                        .putExtra(Constants.OTP_VERIFY_FOR,otpFor))
+                    startActivity(
+                        Intent(this, OTP::class.java)
+                            .putExtra(Constants.USER_NAME, etusername.text.toString())
+                            .putExtra(Constants.AUTH_TYPE, "ForgotPassword")
+                            .putExtra(Constants.OTP_VERIFY_FOR, otpFor)
+                    )
                 }
                 is Resource.Loading -> {
                     ProgressDialog.showProgressBar(this)
