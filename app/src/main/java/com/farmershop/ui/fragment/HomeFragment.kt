@@ -3,6 +3,8 @@ package com.farmershop.ui.fragment
 import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -27,10 +29,8 @@ import com.farmershop.ui.activity.ProductDescriptionActivity
 import com.farmershop.ui.base.BaseFragment
 import com.farmershop.utils.ProgressDialog
 import com.farmershop.utils.Resource
-import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.content_lay_mainact.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 private const val TAG = "HomeFragment"
@@ -38,8 +38,6 @@ class HomeFragment : BaseFragment(){
     var bannerList:ArrayList<BannerData> = ArrayList()
     lateinit var binding: FragmentHome2Binding
     private lateinit var viewModal: HomeViewModal
-    private val page: ViewPager? = null
-    private val tabLayout: TabLayout? = null
     companion object {
         @JvmStatic
         fun newInstance(): HomeFragment {
@@ -82,11 +80,11 @@ class HomeFragment : BaseFragment(){
                     bannerList.add(BannerData(5,"https://media.istockphoto.com/photos/bell-pepper-fresh-green-red-and-yellow-picture-id479891136?k=20&m=479891136&s=612x612&w=0&h=wySmpjruBECKLfcaCInRws_8C15u7OWXA-HckpdmpXM=","","Capsicum 50% Discount"))
                     Log.wtf("BannerrLisst", "ressponse list --- : " + response.data?.data.toString())
                     val itemsPagerAdapter = SlidderBannerAdapter(requireContext(), bannerList)
-                    page!!.adapter = itemsPagerAdapter
+                    binding.myPager.adapter = itemsPagerAdapter
                     // The_slide_timer
                     val timer = Timer()
-                    timer.scheduleAtFixedRate(The_slide_timer(page,bannerList), 2000, 3000)
-                    tabLayout!!.setupWithViewPager(page, true)
+                    timer.scheduleAtFixedRate(The_slide_timer(binding.myPager,bannerList), 2000, 3000)
+                    binding.myTablayout.setupWithViewPager(binding.myPager, true)
                 }
                 is Resource.Loading -> {
                     ProgressDialog.showProgressBar(requireContext())
@@ -228,9 +226,13 @@ class HomeFragment : BaseFragment(){
     }*/
    class The_slide_timer(val page: ViewPager,val bannerList:ArrayList<BannerData>) : TimerTask() {
        override fun run() {
+           val handler = Handler(Looper.getMainLooper())
+           handler.post {
+               // UI code goes here
                if (page.currentItem < bannerList.size - 1) {
                    page.currentItem = page.currentItem + 1
                } else page.currentItem = 0
+           }
        }
    }
 }

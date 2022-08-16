@@ -53,18 +53,19 @@
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/my_pager"
                     android:layout_width="match_parent"
-                    android:layout_height="240dp"
+                    android:layout_height="250dp"
                     />
 
                 <com.google.android.material.tabs.TabLayout
-                    android:layout_below="@+id/my_pager"
-                    app:tabGravity="center"
+                    android:layout_alignBottom="@+id/my_pager"
                     android:id="@+id/my_tablayout"
-                    app:tabBackground="@drawable/indicator_selector"
-                    app:tabIndicatorHeight="0dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    android:background="@android:color/transparent"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    app:tabBackground="@drawable/indicator_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp" />
                 <ProgressBar
                     android:layout_marginVertical="5dp"
                     android:padding="3dp"

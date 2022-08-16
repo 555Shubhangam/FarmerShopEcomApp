@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import android.widget.ViewFlipper
@@ -95,7 +96,7 @@ class Register : BaseActivityUser() {
                     rvError.visibility=View.GONE
                     //response.data?.token?.let { AppSession.getInstance(this).setToken(it) }
                     //response.data?.id?.let { AppSession.getInstance(this).setUserId(it.toString()) }
-                    //Log.d("LoginActivity", "LoginActivity setObserver: " + response.data)
+                    Log.d("RESGGGG", "LoginActivity setObserver: " + response.message)
                     //response.data?.name?.let { AppSession.getInstance(this).setName(it) }
                     Toast.makeText(this, response.message.toString(), Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@Register, Login::class.java))
@@ -105,9 +106,10 @@ class Register : BaseActivityUser() {
                     ProgressDialog.showProgressBar(this)
                 }
                 is Resource.Error -> {
-                    if(response.data?.errorsList!=null){
-                    errorList = response.data?.errorsList!!
-
+                    Log.d("RESGGGG", "LoginActivity setObserver: " + response.data?.errors)
+                    if(response.data?.errors!=null){
+                        Log.d("RESGGGG", "LoginActivity setObserver: " + response.message)
+                        errorList = response.data?.errors!!
                     rvError.visibility=View.VISIBLE
                     rvError.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
                     setErrorListAdapter(rvError)

@@ -130,8 +130,9 @@ class Login : BaseActivity() {
                     ProgressDialog.showProgressBar(this)
                 }
                 is Resource.Error -> {
-                    if(response.data?.errorsList!=null){
-                        errorList = response.data?.errorsList!!
+                    rvError.visibility=View.GONE
+                    if(response.data?.errors!=null){
+                        errorList = response.data.errors
                         rvError.visibility=View.VISIBLE
                         rvError.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
                         setErrorListAdapter(rvError)
@@ -143,7 +144,6 @@ class Login : BaseActivity() {
                         response.message,
                         Toast.LENGTH_SHORT
                     ).show()
-                    Log.wtf(TAG, "ressponse message --- : " + response.message.toString())
                 }
             }
         }

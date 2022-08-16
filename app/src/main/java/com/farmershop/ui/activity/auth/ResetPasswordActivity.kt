@@ -32,7 +32,7 @@ class ResetPasswordActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        userName=intent.getStringExtra(Constants.USER_NAME)
+        userName=intent.getStringExtra(Constants.USER_NAME)!!
 
         toolbar_back.setOnClickListener {
             finish()

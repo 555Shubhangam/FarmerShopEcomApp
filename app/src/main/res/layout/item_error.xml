@@ -1,64 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:background="@color/colorGray3"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-        <androidx.cardview.widget.CardView
-       style="@style/layoutSimple"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="@dimen/_10sdp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        >
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:paddingVertical="@dimen/_5sdp"
-            android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_marginStart="@dimen/_5sdp"
-                android:gravity="center"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/layoutDefaultAddress"
-                android:id="@+id/ratiobtn"
-                android:backgroundTint="@color/colorRed"
-                android:background="@drawable/circle_bg"
-                android:layout_width="@dimen/_6sdp"
-                android:layout_height="@dimen/_6sdp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:id="@+id/layoutDefaultAddress"
-                app:layout_constraintLeft_toRightOf="@+id/ratiobtn"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
-                <TextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:padding="2dp"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:drawableTint="@color/colorAppMain"
-                    android:id="@+id/tvError"
-                    style="@style/txtMonBold"
+                android:paddingVertical="@dimen/_5sdp">
+
+                <ImageView
+                    android:id="@+id/ratiobtn"
+                    android:layout_width="@dimen/_6sdp"
+                    android:layout_height="@dimen/_6sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:background="@drawable/circle_bg"
-                    android:textColor="@color/colorRed"
-                    android:textSize="@dimen/_10ssp"
-                    />
+                    android:backgroundTint="@color/colorRed"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/layoutDefaultAddress"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutDefaultAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/ratiobtn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvError"
+                        style="@style/txtMonBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:background="@drawable/circle_bg"
+                        android:drawableTint="@color/colorAppMain"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:textColor="@color/colorRed"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
