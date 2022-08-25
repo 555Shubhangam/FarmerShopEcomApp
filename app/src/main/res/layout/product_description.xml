@@ -30,6 +30,7 @@
                 android:layout_height="@dimen/_120sdp">
                 <TextView
                     android:text="50% OFF"
+                    android:id="@+id/tvOffer"
                     android:textColor="@color/white"
                     android:padding="@dimen/_3sdp"
                     android:layout_width="wrap_content"
@@ -38,7 +39,7 @@
 
                 <ImageView
                     android:layout_gravity="center_horizontal"
-                    android:id="@+id/image"
+                    android:id="@+id/imgProduct"
                     style="@style/image_view"
                     android:contentDescription="@string/vegimage"
                     android:src="@drawable/veg1"
@@ -56,7 +57,7 @@
             <TextView
                 android:padding="2dp"
                 android:gravity="center_horizontal"
-                android:id="@+id/category"
+                android:id="@+id/tvVegitableName"
                 style="@style/txtMonBold"
                 android:text="@string/mix_vegitable"
                 android:textSize="13sp"
@@ -94,6 +95,8 @@
             <LinearLayout
                    android:layout_marginTop="@dimen/_10sdp"
                    android:gravity="end"
+                   android:id="@+id/lnrAdd"
+                   android:visibility="visible"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content">
                    <TextView
@@ -103,11 +106,27 @@
                        style="@style/btnMonSemiBold"
                        android:text="@string/add"
                        android:layout_width="@dimen/_70sdp"
-
                        android:textAllCaps="false"
-                       android:textColor="@color/white"
-                       />
-               </LinearLayout>
+                       android:textColor="@color/white" />
+                 </LinearLayout>
+                 <LinearLayout
+                     android:id="@+id/lnrOutOfStock"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:gravity="end"
+                 android:visibility="gone"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content">
+                <TextView
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:id="@+id/tvOutOfStock"
+                    style="@style/txtMonSemiBold"
+                    android:text="@string/out_of_stock"
+                    android:layout_width="wrap_content"
+                    android:textAllCaps="false"
+                    android:textColor="@color/red"
+                    />
+            </LinearLayout>
             <LinearLayout
                 android:id="@+id/layoutAddProduct"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -125,6 +144,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"   >
                     <ImageView
+                        android:id="@+id/imgIncreaseQuantity"
                         android:backgroundTint="@color/colorAppMain"
                         android:padding="@dimen/_5sdp"
                         android:background="@drawable/plus"
@@ -146,6 +166,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
+                        android:id="@+id/imgDecreaseQuantity"
                         android:backgroundTint="@color/colorAppMain"
                         android:padding="@dimen/_5sdp"
                         android:background="@drawable/minus"

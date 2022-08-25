@@ -37,7 +37,7 @@
 
                     <ImageView
                         android:layout_gravity="center_horizontal"
-                        android:id="@+id/image"
+                        android:id="@+id/productImg"
                         style="@style/image_view"
                         android:contentDescription="@string/vegimage"
                         android:src="@drawable/veg1"
@@ -55,7 +55,7 @@
                 <TextView
                     android:padding="2dp"
                     android:gravity="center_horizontal"
-                    android:id="@+id/category"
+                    android:id="@+id/tvVegitableName"
                     style="@style/txtMonBold"
                     android:text="@string/mix_vegitable"
                     android:textSize="@dimen/_11ssp"
@@ -119,7 +119,7 @@
                         android:layout_weight="1"
                         android:paddingVertical="@dimen/_5sdp"
                         android:gravity="center"
-                        android:id="@+id/tvProductAdd"
+                        android:id="@+id/tvquantityCartList"
                         style="@style/txtMonBold."
                         android:text="1"
                         />

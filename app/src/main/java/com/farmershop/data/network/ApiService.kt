@@ -67,4 +67,26 @@ interface ApiService {
 
     @GET("data/banners")
     suspend fun getBanner(): Response<BannerResponse>
+
+    @GET("product")
+    suspend fun searchProduct(
+        @Query("search_key") search_key: String,
+        @Query("category_id") category_id: String,
+        @Query("sub_category_id") sub_category_id: String,
+        @Query("page_size") page_size: String,
+        @Query("page_no") page_no: String,
+        @Query("customer_id") customer_id: Int
+    ): Response<SearchResponse>
+
+
+
+
+    @POST("order/cart")
+    suspend fun addCart(@Body request: AddCartRequest): Response<AddCartResponse>
+
+
+    @GET("order/cart")
+    suspend fun cartList(
+        @Query("customer_id") customer_id: Int
+    ): Response<CartListResponse>
 }

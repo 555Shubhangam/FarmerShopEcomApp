@@ -5,13 +5,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 android {
-    compileSdkVersion 32
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.farmershop"
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 30
         versionCode 4
         versionName "1.0.4"
         multiDexEnabled true
@@ -45,6 +45,7 @@ android {
 }
 
 dependencies {
+  /*  def paging_version = "1.0.0"*/
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -124,4 +125,8 @@ dependencies {
 
     //firebase otp verification...
 //    kapt "com.android.databinding:compiler:$androidPluginVersion"
+
+ /*   //pagination
+    implementation "android.arch.paging:runtime:$paging_version"*/
+
 }
